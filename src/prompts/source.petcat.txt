@@ -1,0 +1,1013 @@
+    0 dimr$(20),o$(9),co$(4),na$(3),p(22)
+    3 poke53280,0:poke53281,0
+    4 print"{clr}{wht}{swlc}{dish}- - - Attendi prego - -"
+   10 data0
+   11 data000002000000
+   12 data010000030000
+   13 data000200000000
+   14 data000000000001
+   15 data000000000300
+   16 data000008000000
+   17 data000000000006
+   18 data060900000000
+   19 data000000080000
+   20 data080013110000
+   21 data001000000000
+   22 data110000000000
+   23 data100000000000
+   24 data000000000012
+   25 data000000140000
+   26 data001725150000
+   27 data000000160000
+   28 data000000170000
+   29 data201919190000
+   30 data211919190000
+   31 data202220200000
+   32 data212123210000
+   33 data222222220000
+   34 data000000000000
+   35 data160000000000
+   36 data000000000025
+   37 data000000000000
+   38 data000000000000
+   39 data000000000000
+   40 data000000002400
+   41 data000000000000
+   42 data323232320000
+   43 data343331330000
+   44 data003633000000
+   45 data000000000034
+   46 data000000340000
+   47 data000000000000
+   70 rooms=37:dimb$(ro)
+   71 fori=0toro:readb$(i):next
+   75 ob=15:dimob$(ob),ob(ob):rem**{home}
+   76 fori=1toob
+   77 readob$(i),ob(i):next
+   78 data chiavetta,0,chiave,0,mant. rosso,5,spada,0,fune,0
+   79 data vaso vuoto,0,mappa,0,scrigno,26,pezzo legno,7,salvagente,30
+   80 data fiaccola,28,baule vecchio,4,pesce,0,topo morto,13,diamante,35
+   85 nm=32:dimnm$(nm),nm(nm)
+   86 fori=1tonm
+   87 readnm$(i),nm(i):next:rem**{home}
+   88 data tavolo,1,letto,3,cassetto,3,piscina,9,lancia,0,scala,1,bottola,0
+   89 data porta,2,grande olivo,0,pianta picc.,12,sentiero,14,elefante,14
+   90 datavallata,15,banchina,17,battello,18,battello,24,villa,6
+   91 data ponte,0,cabina,0,nano,26,toro,11,spiaggia,0,boccapor.aper.,28
+   92 data battello,29,cancello,11,buco,24,isola,20,scogliera,23
+   93 data banchina,19,foresta,31,incavat.vuota,0,passag.aperto,0
+   95 dimc$(6):fori=1to6:readc$(i):next:data nord,est,sud,ovest,alto,basso
+   96 w$="{home}{down}{down}{down}{down}{down}{down}{down}{down}{down}{down}{down}{down}{down}{down}{down}{down}{down}{down}":rem**{home}
+   97 ta$="chichimanspafunvasmapscrlegsalfiabaupestopdia   marsal":at=18:t1=15
+  100 ol=67:lo$="norestsudovealtbaschimanspafunmarvasmaptoplegtavletcaspisbausca"
+  101 lo$=lo$+"botporolipiasenelevalalbbanbatponcabnaningsofrusgiatorcamlagsco"
+  102 lo$=lo$+"pescanlansopcorspibucisoscrsalsalfiabocsotvilyouofffor"
+  103 lo$=lo$+"monaztmurdiapasinc   "
+  104 mc=47:cm$="vai attrnaviinvedai salvcalmaffeprencoglaiutgettlasclancbutt"
+  105 cm$=cm$+"guaresamcercucciattamuovrecitaglarraapriindolevaaspemangdicichie"
+  106 cm$=cm$+"tiraspinpremaccespegimmepiglvuotannariemfuckpisssaltnuotintrinse"
+  107 gosub20001:rem{del}{del}{del}{del}{del}{del}{del}{del}{del}{del}{del}{del}{del}{del}{del}{del}{del}{del}{del}
+  110 x=1::gg=40
+  111 print"{clr}Riprendi il gioco":print"dalla cassetta (s/n)?";
+  112 gosub2040:co$=left$(co$,1):ifco$="s"then8050
+  113 print"{clr}"w$"benvenuto al,tesoro della":print"{red}tomba azteca (pt.1)"
+  114 printchr$(14+128);
+  120 gosub2030:a=0:gosub4000:ifa=0thengosub20000:goto122
+  121 goto130
+  122 ifx=0then8010
+  123 gosub2000:gosub2020
+  124 ifx=8andob(9)=8andp(9)=0thennm(18)=x:goto 137
+  125 ifx=8andob(9)=8andp(9)=0thenp(9)=1:ob(9)=0:pp=pp-1:goto9000
+  126 ifx=37then8000:rem**{home}
+  129 ifp(20)=1thengg=gg-1:ifgg<15thenprint"la fiaccola si spegne in "gg" giri"
+  130 ifp(20)=1thengg=gg-1:ifgg<0thenp(22)=1
+  131 ifp(22)=1thenob$(11)="fiac. inutil.":print"fiaccola inutilizzabile!"
+  132 ifp(22)=1thenp(22)=2:ifob(11)=-1thenob(11)=x:pp=pp-1:p(20)=0:goto120
+  133 printw$"{up}{wht}cosa devo fare ?";
+  134 gosub10010:gosub10000
+  135 ifco$=""then5010
+  136 gosub2050:goto 140:rem**{home}
+  137 print"{down}il legno fa un ponte sul ruscello":goto 125
+  140 cm=0:fori=1tomc:ifna$(1)=mid$(cm$,i*4-3,4)thencm=i:i=mc
+  141 next:ifcm=0thenprint">"co$(1)"<":goto5000
+  142 lo=0:fori=1tool:ifna$(2)=mid$(lo$,i*3-2,3)thenlo=i:i=ol
+  143 next:iflo=0thenprint">"co$(2)"<":goto5000
+  145 ifx3+x4+x5<>0thennew:rem{del}{del}{del}{del}{del}{del}{del}{del}{del}{del}{del}{del}{del}{del}{del}{del}{del}{del}{del}{del}{del}{del}{del}{del}{del}{del}{del}{del}{del}
+  199 ifcm<>1andcm<>2andcm<>3then300
+  200 if(x=30orx=37)and(p(20)=0or(ob(11)<>-1andob(11)<>x))then5060
+  201 ifco$(2)=""thenprint"prova una direzione!":goto9001
+  202 iflo>6then208
+  203 a=val(mid$(b$(x),lo*2-1,2)):ifa<>0thenx=a:goto120
+  204 print"non posso andarci!":goto9001
+  208 iflo=21andx=1thenx=4:goto120
+  209 iflo=22andx=3andp(1)=1thenx=5:goto120
+  210 ifx=2andlo=23andp(2)=0thenprint"e' chiusa!":goto9001
+  211 ifx=2andlo=23thenx=6:goto9010
+  212 ifx=6andlo=57thenx=2:goto120
+  213 iflo=32andx=8andp(9)=1thenx=10:goto120
+  214 iflo=44andx=11andob(3)<0thenprint"il toro non mi fa passare!":goto9001
+  215 iflo=44andx=11thenx=12:goto120:rem**{home}
+  216 iflo=37andx=8thenprint"aiutooo!! non so nuotare.....":x=0:goto9000
+  217 iflo=26andx=14andp(16)=0thenprint"l'elefante non mi fa passare!":goto9001
+  218 iflo=26andx=14thenx=15:goto9010
+  219 iflo=28andx=15thenx=16:goto9010
+  220 iflo=30andx=17thenx=18:goto120
+  221 iflo=31andx=18thenx=19:goto120
+  222 iflo=50andx=20thenx=24:goto120
+  223 iflo=31andx=24thenx=20:goto120
+  224 iflo=45andp(18)=1and(x>19andx<24)thenop=x:x=29:goto120
+  225 iflo=31andx=29thenx=op:goto120
+  226 iflo=33andp(18)=1and(x>18andx<24)thenop=x:x=28:goto120
+  227 iflo=55andx=28thenx=op:goto120
+  228 iflo=49andx=24thenx=30:goto120
+  229 iflo=42andx=23thenprint"e' troppo alto, non ci arrivo!":goto9000
+  230 iflo=30andx=19thenx=18:goto120
+  231 iflo=60andx=31andob(7)<>-1thenx=32:goto120
+  232 iflo=60andx=31thenx=33:goto120
+  233 iflo=65andx=36andnm(32)=36thenx=37:goto120
+  234 iflo=48andx=27thenx=31:goto120
+  299 printw$"mi dispiace!":goto9001
+  300 ifcm<>16andcm<>17andcm<>18then400
+  301 a$="non vedo niente di speciale!"
+  302 b$="vedo qualcosa":rem**{home}
+  310 iflo=17andx=3andp(1)=0thenprintb$:nm(7)=x:p(1)=1::goto9000
+  311 iflo=8and(ob(3)=xorob(3)<0)thenprint"sento una certa forza!":goto9001
+  312 iflo=18andp(3)=1andp(5)=0andx=3thenprintb$:ob(2)=3:p(3)=2:goto9000
+  313 iflo=56andp(6)=0andob(3)=-2andx=5thenprintb$:ob(1)=x:p(6)=1:goto9000
+  314 iflo=16andx=1andp(7)=0thenprint"e' sporco!":goto9001
+  315 iflo=35andx=2andp(8)=0thenp(8)=1:printb$:ob(6)=x:goto9000
+  316 iflo=19andx=9andp(10)=0thenp(10)=1:printb$:ob(13)=x:goto9000
+  317 iflo=43andp(10)=2thenprint"e' magico e dice prima di sparire :"
+  318 iflo=43andp(10)=2thenprint"le piante hanno bisogno di acqua!"
+  319 iflo=43andp(10)=2thenob$(6)="vaso vuoto":p(10)=3:p(12)=1:goto9000
+  320 iflo=18andp(3)=0thenprint"si puo' aprire!":goto9001
+  321 iflo=13andob(7)=-1then9050
+  322 iflo=39andx=11thenprint"sembra arrabbiato!":goto9001
+  323 iflo=31and(x>18andx<24)andp(18)=0thenp(18)=1:printb$:nm(19)=20:nm(5)=20:goto9000
+  324 iflo=45andx=29thenprint"c'e' una corda,un capo lega la lancia"
+  325 iflo=45andx=29thenprint"l'altro il battello!":goto9001
+  326 iflo=14and(ob(14)=xorob(14)=-1)thenprintw$"e' morto!":goto9001
+  327 ifp(21)=0andx=36andlo=63thenp(21)=1:printb$:nm(31)=x:goto9000
+  328 iflo=60andx=32thenprint"non vedo uscite!":goto9001
+  329 iflo=66andnm(31)=36andx=36thenprintw$"e' vuota!":goto9001
+  330 iflo=61andx=34thenprint"non posso arrampicarmici!":goto9001
+  331 iflo=34andx=26andnm(20)=26thenprint"egli allunga le mani,"
+  332 iflo=34andx=26andnm(20)=26thenprint"sta aspettando qualcosa!":goto130
+  399 printa$:goto9001:rem**{home}
+  400 ifcm<>8andcm<>9andcm<>10then430
+  401 ta=0:fori=1toat:ifmid$(ta$,i*3-2,3)=na$(2)thenta=i:i=at
+  402 next:ifpp=5thenprint"porto troppe cose!":goto9001
+  403 ifta=ob+1thenprint"eh?":goto9001
+  404 ifta=ob+2thenta=6
+  405 ifta=ob+3thenta=10
+  406 ifob(ta)<>xthen412
+  407 ifta=13andp(10)=1thenprint"non ci riesco,e' troppo veloce!":goto9001
+  408 ifta=5andp(14)=1andx=23thenprint"nonn ci arrivo!":goto9001
+  409 ifta=5andp(14)=1thenp(14)=0:ob$(5)="fune"
+  410 ifta=8andp(15)=0thenprint"il nano non me lo fa prendere!":goto9001
+  411 ob(ta)=-1:pp=pp+1:goto9010:rem**{home}
+  412 ifta=1thenta=2:goto406
+  413 ifta=0then5002
+  414 print"non lo vedo!":goto9001
+  430 ifcm<>4then450
+  431 print"{home}{down}{down}{down}{down}{down}{down}"tab(24)"{cyn}sto portando:{wht}"
+  432 y=0:fori=1toob:ifob(i)<0thenprinttab(24)ob$(i);:y=1
+  433 ifob(i)=-2thenprint"{red}ind.{wht}";
+  434 ifob(i)<0thenprint
+  435 next:ify=0thenprinttab(25)"niente!":goto9001
+  436 goto130
+  437 nm$(8)="porta aperta":p(2)=1:goto120
+  450 ifcm<>25then500
+  451 ifco$(2)=""then5000
+  452 iflo=23andx<>2then5001
+  453 iflo=23andx=2andob(2)>-1andp(2)=0thenprint"non ho la chiave!":goto120
+  455 iflo=23andx=2andob(2)=-1thenprint"la porta e' aperta!":goto437
+  456 iflo=18andp(3)=0andx=3thennm$(3)="cass.aper.":p(3)=1:goto9010:rem**{home}
+  457 iflo=18andx<>3then5001
+  458 iflo=20and(ob(12)<0orob(12)=x)andob(1)=-1andp(4)=0then460
+  459 goto461
+  460 ob$(12)="baule aper.":print"vedo qualcosa!":ob(4)=x:ob(5)=x:p(4)=1:goto120
+  461 iflo=20and(ob(12)<0orob(12)=x)andob(1)>-1andp(4)=0then463
+  462 goto464
+  463 print"non ho la chiave!":goto130
+  464 iflo=51andob(8)<>-1then5001
+  465 iflo=51andp(17)=0thenob$(8)="scrigno aper.":ob(7)=x:print"vedo qualcosa!"
+  466 iflo=51andp(17)=0thenp(17)=1:goto120
+  499 goto5000
+  500 if cm<>26then530
+  501 iflo=8andob(3)=-1thenob(3)=-2:print"o.k.":goto130
+  502 iflo=8then5001
+  503 if(lo=53orlo=52)andob(10)=-1thenprint"o.k.":ob(10)=-2:goto9001
+  504 if(lo=53orlo=52)then5001
+  529 goto5000
+  530 ifcm<>12andcm<>13then560:rem**{home}
+  531 ta=0:fori=1toat:ifmid$(ta$,i*3-2,3)=na$(2)thenta=i:i=at
+  532 next:ifta=13andp(10)=2then5002
+  533 ifta=ob+1thenprint"eh?"goto130
+  534 ifta=ob+2thenta=6
+  535 ifta=ob+3thenta=10
+  536 ifob(ta)<>-1then540
+  537 ifta=14andx=14andp(16)=0thennm(12)=0:print"l'elefante scappa dalla paura!"
+  538 ifta=14andx=14andp(16)=0thenp(16)=1
+  539 ob(ta)=x:pp=pp-1:goto9010
+  540 ifob(ta)=-2thenprint"ce l'ho indosso!":goto130
+  541 ifta=1thenta=2:goto536
+  542 ifta=0then5002
+  543 goto5000
+  560 ifcm<>24then580
+  561 iflo=57andx=6thenx=7:goto9010
+  562 iflo=10andp(14)=1andx=25thenx=26:goto9010
+  563 iflo=10 andp(14)=1andx=23thenprint"non ci arrivo!":goto9001
+  564 iflo=10then5001
+  565 iflo=29andx=25thenprint"l'albero e' troppo scivoloso!":goto130
+  566 iflo=24andx=12andp(13)=2thenx=14:goto9010
+  567 iflo=24andx=12andp(13)=3thenprint"l'ulivo era troppo debole. sono":x=0
+  568 iflo=24andx=12andp(13)=3thenprint"caduto e mi sono rotto il collo!":goto120
+  569 iflo=24then5001
+  570 iflo=61andx=34thenx=35:goto9010:rem**{home}
+  579 goto5000
+  580 ifcm<>38then590
+  581 iflo<>43then5000
+  582 if(p(10)<>1orx<>9)then5001
+  583 ifob(6)<>-1thenprint"mi scappa via!":ob(13)=0:p(10)=3:goto9000
+  584 ifpp=5then5001
+  585 print"e' ora nel vaso!":ob(13)=0:ob$(6)="pesce nel vaso":p(10)=2:goto9000
+  590 ifcm<>39then620
+  591 iflo<>11andlo<>12then5000
+  592 ifob(6)<>-1then5001
+  593 ifp(10)=2thenp(10)=3:ob$(13)="pesce morto":ob(13)=x:print"o.k.":goto610
+  594 ifp(11)=0thenprint"e' gia' vuoto!":goto9001
+  595 ifp(11)=1then597
+  596 goto5001
+  597 ifx=12andp(12)=1andp(13)=0thennm$(10)="pianta grande":goto 615
+  598 ifx=12andp(12)=1andp(13)=0thenp(13)=1:goto610
+  599 ifx=12andp(12)=1andp(13)=1thennm(10)=0:nm(9)=12:p(13)=2:print"ooh!":goto610
+  609 print"o.k.":print"non succede nulla!":rem**{home}
+  610 ob$="vaso vuoto":p(11)=0:goto120
+  611 goto 620
+  615 print"la pianta sta crescendo!":goto598
+  620 ifcm<>41then640
+  621 iflo<>11andlo<>12then5000
+  622 ifx<>9andob(6)<>-1then5001
+  624 ifp(11)=1thenprint"e' gia' pieno":goto9001
+  625 p(11)=1:ob$(6)="vaso pieno":print"il vaso e' ora pieno!":goto9001
+  640 ifcm<>40then660
+  641 iflo<>25then5000
+  642 ifx<>12then5001
+  643 ifp(11)=0thenprint"non ho dell'acqua!":goto9001
+  645 goto597
+  660 ifcm<>14andcm<>15then680
+  661 iflo<>10andlo<>8then531
+  662 iflo=8andob(3)>-1then5001
+  663 iflo=8andob(3)=-2thenprint"ce l'ho indosso!":goto9001
+  664 iflo=8andx<>11then531:rem**{home}
+  665 iflo=8thenpp=pp-1:ob(3)=12:print"si trova ora nel prossimo campo!":goto130
+  666 iflo=10and(x<>25andx<>23)then531
+  667 ifob(5)<>-1then5001
+  668 ob$(5)="fune penzol.":ob(5)=x:print"ha agganciato,e' sicura!"
+  669 pp=pp-1:p(14)=1:goto120
+  680 ifcm<>11then700
+  681 ifx=9andp(10)=1thenprint"prova pigliando il pesce":goto9001
+  682 ifx=11andob(3)<0thenprint"forse e'il mantello!":goto130
+  683 ifx=32thenprint"forse ci serve una mappa!!!":goto130
+  689 print"{wht}esam{cyn}ina e poi {wht}pensa{cyn}!":goto130
+  700 ifcm<>22andcm<>23then720
+  701 ifob(4)<>-1thenprint"non ho nulla d'affilato per tagliarlo!":goto130
+  702 iflo=24and(x<>12orp(13)<>2)then5001
+  703 iflo=24thenp(13)=3:nm(9)="pianta mor":print"l'olivo muore":
+  705 iflo=47andx<>29then5001:rem**{home}
+  706 iflo=47thenprint"sono alla deriva!":goto710
+  709 goto5000
+  710 print"ho urtato le rocce ed affondo!!":x=0:goto 120
+  720 ifcm<>27then740
+  721 iflo=8andob(3)<>-2then5001
+  722 iflo=8thenob(3)=-1:print"o.k.":goto130
+  723 if(lo=52orlo=53)andob(10)<>-2then5001
+  724 if(lo=52orlo=53)thenob(10)=-1:print"o.k.":goto130
+  739 goto5000
+  740 ifcm<>19andcm<>20then760
+  741 ifob(4)<>-1thenprint"non ho un'arma!":goto130
+  742 iflo=43andp(13)=1andx=9thenprint"il pesce e'{$a0}morto!":ob$(13)="pesce morto"
+  743 iflo=43andp(13)=1andx=9thenp(13)=3:goto120
+  744 iflo=43andp(13)=3then5001
+  745 iflo=43andp(13)=2thenprint"e' morto!":ob$(13)="pesce morto"
+  746 iflo=43andp(13)=2thenob$(6)="vaso vuoto":p(13)=3:goto120
+  747 iflo=14and(ob(14)=xorob(14)=-1)thenprint"e' gia' morto!":goto130
+  748 iflo=39andx=11thenprint"e' troppo arrabbiato!":goto130
+  749 iflo=27andx=14andp(16)=0thenprint"e' troppo grande da uccidere!":goto130
+  750 iflo=34andx=26andp(15)=0thenob(8)=0:nm(20)=0:print"sparisce con il suo scrigno!"
+  751 iflo=34andx=26andp(15)=0thenp(15)=1:p(17)=1:goto120:rem**{home}
+  759 goto5000
+  760 ifcm<>5then770
+  761 ifx<>26orp(15)<>0then5001
+  762 iflo<>8thenprint"si scosta! prova qualcos'altro!":goto130
+  763 ifob(3)<>-1thenprint"non ce l'hai!":goto9001
+  764 pp=pp-1:ob(3)=0:nm(20)=0:p(15)=1:print"il nano sparisce!":goto120
+  770 ifcm<>42andcm<>43then780
+  771 print"vai a lavarti la bocca! sporcaccione":goto130
+  780 ifcm<>44then800
+  781 iflo=10andx<>23then5001
+  782 iflo=10andp(14)=0then5001
+  783 iflo=10thenprint"ci rischio la vita!":goto130
+  784 iflo=46andx<>23then5001
+  785 iflo=46andob(10)<>-2thenprint"ho urtato le rocce ed affondo":x=0:goto120
+  786 iflo=46thenprint"pfiu! fortuna che indossavo il salvag.":x=27:goto9000
+  798 iflo=olthenprint"saltare dove?":goto130
+  799 goto5000
+  800 ifcm<>45then810
+  801 ifx<>27then5001
+  802 ifp(19)=0thennm(22)=27:p(19)=1:goto9010:rem**{home}
+  803 print"o.k.":goto9001
+  810 ifcm<>35then820
+  811 iflo<>54then5000
+  812 ifp(20)=1orob(11)<>-1orp(22)=2then5001
+  813 print"o.k.":p(20)=1:ob$(11)="fiac.accesa":goto9000
+  820 ifcm<>36andcm<>37then830
+  821 iflo<>54then5000
+  822 ifp(20)=0orob(11)<>-1then5001
+  823 print"o.k.":ob$(11)="fiaccola":p(20)=0:goto9000
+  830 ifcm<>46andcm<>47then840
+  831 iflo<>64then5000
+  832 ifx<>36ornm(31)=0orob(15)<>-1then5001
+  833 print"il diamante c'entra e sparisce!":nm(31)=0:nm(32)=x:ob(15)=0:pp=pp-1
+  834 goto9000
+  840 ifcm<>28then845
+  841 print"il tempo  passa...":print"non succede nulla!":goto130
+  845 ifcm<>29then850
+  846 print"beah! no grazie!":goto130:rem**{home}
+  850 ifcm<>30andcm<>31then855
+  851 print"o.k.":printco$(2):print"non succede nulla!":goto130
+  855 ifcm<>6then870
+  856 print"premere 'return' quando sei pronto!":gosub2040
+  857 open1,1,1,"azteco1"
+  858 print#1,x:print#1,pp
+  859 fori=1tonm:print#1,nm$(i):print#1,nm(i):next
+  860 fori=1toob:print#1,ob$(i):print#1,ob(i):next
+  861 fori=1to22:print#1,p(i):next
+  862 close1:goto120
+  870 ifcm<>7then875
+  871 goto8010
+  875 goto5000
+  890 printtab(6)z3$:print:printtab(16)z4$:print:printtab(8)z5$:print
+  891 printtab(6)z6$:return
+ 2000 y=0:fori=1toob:ifob(i)=xtheny=y+1:r$(y)=ob$(i):rem**{home}
+ 2001 next:fori=1tonm:ifnm(i)=xtheny=y+1:r$(y)=nm$(i)
+ 2002 next:ify=0thenreturn
+ 2003 fori=1to9:o$(i)="":next
+ 2004 print"{home}{down}{down}{red}"tab(26)"posso vedere:"
+ 2005 fori=1toy
+ 2006 a=1
+ 2007 r=len(o$(a)):ifr=0theno$(a)=r$(i):goto2010
+ 2008 ifr+len(r$(i))+1<14theno$(a)=o$(a)+"-"+r$(i):goto2010
+ 2009 a=a+1:ifa<10then2007
+ 2010 next:fori=1to9
+ 2011 ifo$(i)<>""thenprinttab(25);o$(i)
+ 2012 next:return
+ 2020 y=0:a$=""::fori=1to6:ifval(mid$(b$(x),i*2-1,2))<>0thena$=a$+" "+c$(i):y=1
+ 2021 next:ify=0thenreturn
+ 2022 print"{home}{down}{down}{down}{down}{down}{down}{down}{down}{down}{down}{down}{down}{down}{down}{down}{down}{grn}uscite "a$:return
+ 2030 print"{home}";:fori=1to15:print"                                       ":next
+ 2031 print"{pur}---------------------------------------"
+ 2032 print"                                       ":return
+ 2040 co$="":print"{wht}                  {left}{left}{left}{left}{left}{left}{left}{left}{left}{left}{left}{left}{left}{left}{left}{left}";:poke 788,56
+ 2041 geta$:ifa$=""then2041
+ 2042 rem
+ 2043 ifa$=chr$(20)andlen(co$)>0thenco$=left$(co$,len(co$)-1):print"{left}  {left}{left}";:goto2041
+ 2044 ifa$=chr$(13)thenprint" ":poke 788,49:return
+ 2045 iflen(co$)>16then2041
+ 2046 if(a$<"a"ora$>"z")anda$<>" "then2041
+ 2047 co$=co$+a$:printa$;:goto2041
+ 2050 fori=1to3:co$(i)="":na$(i)="":next:co$=co$+" ":y=1:p=1
+ 2051 fori=1tolen(co$):rem**{home}
+ 2052 ifmid$(co$,i,1)=" "thenco$(y)=mid$(co$,p,i-p):p=i+1:y=y+1:gosub9098
+ 2053 next
+ 2054 iflen(co$(1))=1then2056
+ 2055 goto2058
+ 2056 a$="nesoab":fori=1to6:ifco$(1)=mid$(a$,i,1)thenco$(1)="vai":co$(2)=c$(i)
+ 2057 next
+ 2058 fori=1to2
+ 2059 na$(i)=co$(i)
+ 2060 iflen(na$(i))<4thenna$(i)=na$(i)+" ":goto2060
+ 2061 next:na$(1)=left$(na$(1),4)
+ 2062 na$(2)=left$(na$(2),3)
+ 2063 return
+ 4000 ifp(18)=1thenifx>18andx<24thennm(19)=x:nm(5)=x
+ 4001 if(x=30orx=37)andp(20)=0thena=1:print"{home}{wht}non ci vedo, e' troppo buio!"
+ 4002 ifx>18andx<24thenfori=1to14:ifob(i)>18andob(i)<24thenob(i)=x
+ 4003 ifx>18andx<24thennext
+ 4004 return
+ 5000 print"non capisco!":goto9001:rem**{home}
+ 5001 print"non lo posso fare adesso!":goto130
+ 5002 print"mi e' impossibile!":goto9001
+ 5010 printchr$(34)chr$(34)" non capisco!":goto9001
+ 5060 print"e' pericoloso muoversi al buio."
+ 5061 print"sono caduto e mi sono rotto il collo!":x=0:goto9000
+ 8000 printw$"{down}hai completato la tua prima missione!"
+ 8001 print"finiscila in 'la tomba azteca(par.2)'"
+ 8010 printw$"{up}vuoi giocare (s/n)?";
+ 8011 gosub2040:co$=left$(co$,1)
+ 8012 ifco$="s"thenrun
+ 8013 ifco$<>"n"then8011
+ 8014 goto8014
+ 8050 print"premi 'return' quando sei pronto";:gosub2040:rem**{home}
+ 8051 open1,1,0,"aztec1"
+ 8052 input#1,x:input#1,pp
+ 8053 fori=1tonm:input#1,nm$(i):input#1,nm(i):next
+ 8054 fori=1toob:input#1,ob$(i):input#1,ob(i):next
+ 8055 fori=1to22:input#1,p(i):next
+ 8056 close1:goto120
+ 9000 goto120
+ 9001 goto130
+ 9010 print"o.k.":goto120
+ 9050 print"{home}{rvon}{grn}O{CBM-Y}{CBM-Y}{CBM-Y}{CBM-Y}{CBM-Y}O{CBM-Y}{CBM-Y}{blu}{CBM-Y}{CBM-Y}{CBM-Y}O{CBM-Y}{CBM-Y}{CBM-Y}{CBM-Y}{CBM-Y}O{grn}n{CBM-Y}P"
+ 9051 print"{rvon}{CBM-G} {wht}x{grn}casa{blu} alber.   {grn} o+e{CBM-M}"
+ 9052 print"{rvon}{CBM-G}     {CBM-G}{blu}     {CBM-G}  {grn}   {CBM-G}s {CBM-M}"
+ 9053 print"{rvon}{CBM-G}   {blu}  {CBM-G}     {CBM-G} {grn}    {CBM-G}  {CBM-M}"
+ 9054 print"{rvon}L{CBM-P}{CBM-P}{blu}{CBM-P}{CBM-P}lago{CBM-P}{CBM-P}{CBM-P}L{CBM-P}{grn}{CBM-P}{CBM-P}{CBM-P}{CBM-P}L{CBM-P}{CBM-P}{SHIFT-@}"
+ 9055 print"{rvon}{CBM-G}  {blu}  gigante{CBM-G} {grn}  tomba{CBM-M}"
+ 9056 print"{rvon}{blu}{CBM-G}     {CBM-G}     {CBM-G}{grn}   azteca"
+ 9057 print"{rvon}{blu}{CBM-G}     {grn}{CBM-G}{blu}     {grn}{CBM-G}     {CBM-G}W {CBM-M}"
+ 9058 print"{rvon}{blu}L{CBM-P}{CBM-P}{CBM-P}{CBM-P}{CBM-P}L{CBM-P}{CBM-P}{CBM-P}{CBM-P}{grn}{CBM-P}L{CBM-P}{CBM-P}{CBM-P}{CBM-P}{CBM-P}L{CBM-P}{CBM-P}{SHIFT-@}"
+ 9060 printw$"{down}{down}premi 'return'!":gosub2040:goto120:rem**{home}
+ 9098 ifco$(y-1)=""ory=4theny=y-1
+ 9099 return
+10000 printw$;:fori=1to5:print"                                       ":next
+10001 printw$;:return
+10010 poke 788,56
+10011 geta$:ifa$=""then10011
+10012 co$="":print"{wht}                  {left}{left}{left}{left}{left}{left}{left}{left}{left}{left}{left}{left}{left}{left}{left}{left}{left}";
+10013 goto2042
+10100 poke 788,56
+10101 geta$:ifa$=""then10101
+20000 gosub 29500:return
+20001 rem
+20002 gosub29488:rem{del}{del}{del}{del}{del}{del}{del}{del}{del}{del}{del}{del}{del}{del}{del}{del}{del}{del}{del}{del}{del}
+20100 printchr$(142)"{clr}{up}":rem
+20111 printtab(16)"OP   N{CBM-Y}{CBM-Y}M"
+20112 printtab(16)"{CBM-H}{CBM-N}   {CBM-H}{CBM-A}{CBM-S}{CBM-N}"
+20113 printtab(16)"{CBM-H}{CBM-N}{CBM-P}{CBM-P} {CBM-H}{CBM-Z}{CBM-X}{CBM-N}"
+20114 printtab(16)"L{CBM-P}{CBM-P}{SHIFT-@} LOP{SHIFT-@}"
+20115 printtab(8)"               {CBM-P}{CBM-P}{CBM-P}
+20116 printtab(8)"O{CBM-Y}{CBM-Y}P N{CBM-Y}{CBM-Y}M OMNP {CBM-H}{CBM-A}{CBM-S}M N{CBM-Y}{CBM-Y}M"
+20117 printtab(8)"{CBM-Y}{CBM-H}{CBM-N}{CBM-Y} {CBM-H}NM{CBM-N} {CBM-H}  {CBM-N} {CBM-H}{CBM-Z}{CBM-X}N {CBM-H}{CBM-A}{CBM-S}{CBM-N}"
+20118 printtab(8)" {CBM-H}{CBM-N}  {CBM-H}MN{CBM-N} {CBM-H}MN{CBM-N} {CBM-H}{CBM-A}{CBM-S}M {CBM-H}{CBM-Z}{CBM-X}{CBM-N}"
+20119 printtab(8)" L{SHIFT-@}  M{CBM-P}{CBM-P}N L{CBM-H}{CBM-N}{SHIFT-@} {CBM-H}{CBM-Z}{CBM-X}N LOP{SHIFT-@}"
+20120 printtab(8)"               {CBM-Y}{CBM-Y}{CBM-Y}
+20121 print"      N{CBM-Y}{CBM-Y}M O{CBM-Y}{CBM-Y}P O{CBM-Y}{CBM-Y}P O{CBM-Y}{CBM-Y}P O{CBM-Y}{CBM-Y}P N{CBM-Y}{CBM-Y}M":rem**{home}
+20122 print"      {CBM-H}{CBM-A}{CBM-S}{CBM-N} {CBM-Y}N N {CBM-Y}{CBM-H}{CBM-N}{CBM-Y} {CBM-H}O{CBM-Y}{CBM-Y} {CBM-H} O{CBM-Y} {CBM-H}{CBM-A}{CBM-S}{CBM-N}"
+20123 print"      {CBM-H}{CBM-Z}{CBM-X}{CBM-N}{$a0}N N{CBM-P}  {CBM-H}{CBM-N}  {CBM-H}P{CBM-P}{CBM-P} {CBM-H} L{CBM-P} {CBM-H}{CBM-Z}{CBM-X}{CBM-N}"
+20124 print"      LOP{SHIFT-@} L{CBM-P}{CBM-P}{SHIFT-@}  L{SHIFT-@}  L{CBM-P}{CBM-P}{SHIFT-@} L{CBM-P}{CBM-P}{SHIFT-@} LOP{SHIFT-@}"
+20125 print:printtab(16)"(1' parte)"
+20999 gosub890:ifz9<>6547thennew:rem{del}{del}{del}{del}{del}{del}{del}{del}{del}{del}{del}{del}{del}{del}{del}{del}{del}{del}{del}{del}{del}{del}{del}{del}{del}{del}{del}{del}{del}{del}{del}{del}{del}{del}{del}{del}{del}
+21000 fori=1to10000:next
+25000 printchr$(14)"{clr}{down}{down}{rght}{rght}{rght}{rght}{rght}{rght}{rght}{rght}{rght}{rght}{rght}I{$a0}S{$a0}T{$a0}R{$a0}U{$a0}Z{$a0}I{$a0}O{$a0}N{$a0}I"
+25010 print"{down}{down}{rght}{rght}{rght}{rght}Il tutto consiste nel trovare una":rem**{home}
+25020 print"via per arrivare alla Tomba Azteca,la"
+25030 print"quale via e' pero' sparsa di ostacoli"
+25040 print"e un po' di 'messaggi',usando comandi"
+25050 print"quali un verbo in forma imperativa ed"
+25060 print"un sostantivo:"
+25070 print"es.: GUARDA{$a0}TAVOLO"
+25080 print"Nota che gli articoli non sono mai usati"
+25090 print"Uniche eccezzioni sono :"
+25100 print"AIUTA e INVENTARIO, le quali puoi"
+25110 print"usare da sole ed in qualsiasi momento."
+25120 print"{down}Le direzioni sono :"
+25130 print"NORD,EST,SUD,OVEST,ALTO,BASSO."
+25140 print"Le quali si possono usare cosi':"
+25150 print"es.: VAI{$a0}SUD"
+25160 print" o : S"
+25170 print"(Premere un tasto per continuare)"
+25180 get a$:if a$=""then25180
+25190 return
+29488 z2$="":fori=1to100:readz1:z2$=z2$+chr$(z1):z9=z9+z1:rem{del}{del}{del}{del}{del}{del}{del}{del}{del}{del}{del}{del}{del}
+29490 ifi=30thenz3$=z2$:z2$=""
+29492 ifi=41thenz4$=z2$:z2$=""
+29494 ifi=68thenz5$=z2$:z2$=""
+29496 ifi=100thenz6$=z2$:z2$=""
+29498 nexti:return
+29500 print"{home}";
+29501 x2=35143:x3=peek(x2):rem{del}{del}{del}{del}{del}{del}{del}{del}{del}{del}{del}{del}{del}{del}{del}{del}{del}{del}{del}{del}{del}{del}{del}{del}{del}{del}{del}{del}{del}{del}{del}
+29510 on xgosub30009,30025,30042,30075,30060,30090,30106,30122,30139,30153
+29515 ifx<11then29525
+29520 onx-10gosub30181,30196,30167,30208,30224,30239,30250,30261,30274,30274
+29525 if x<21 then29535
+29530 on x-20gosub30274,30274,30274,30297,30311,30323,30342,30357,30374,30387
+29535 if x<31 then29570
+29540 on x-30 gosub30403,30417,30417,30433,30448,30465,30484
+29570 ifx=0thengosub30499:rem**{home}
+29575 x4=peek(x2+1):x5=peek(x2+2):rem{del}{del}{del}{del}{del}{del}{del}{del}{del}{del}{del}{del}{del}{del}{del}{del}{del}{del}{del}{del}{del}{del}{del}{del}{del}{del}{del}{del}{del}{del}{del}{del}{del}{del}{del}{del}{del}{del}
+29580 return
+29590 end
+30009 print"{gry2} M{CBM-@}{CBM-@}{CBM-@}{CBM-@}{CBM-@}{CBM-@}{CBM-@}{CBM-@}{CBM-@}{CBM-@}{CBM-@}{CBM-@}{CBM-@}{CBM-@}{CBM-@}{CBM-@}{CBM-@}{CBM-@}{lblu}{CBM-G}{gry2}{CBM-@}{lblu}{CBM-M}{gry2}{CBM-@}
+30010 print"{gry2} {CBM-M} {wht}     {CBM-P}{CBM-P}{CBM-P}{CBM-P}{CBM-P}{CBM-P}{CBM-P}{CBM-P}{CBM-P}{CBM-P}{CBM-P}{lblu} O{CBM-Y}P
+30011 print"{gry2} {CBM-M} {wht}    {CBM-M}           {CBM-H}{lblu}{CBM-G} {CBM-M}
+30012 print"{gry2} {CBM-M} {wht}    {CBM-M}{SHIFT-*}{SHIFT-*}{SHIFT-*}{SHIFT-*}{SHIFT-*}{SHIFT-*}{SHIFT-*}{SHIFT-*}{SHIFT-*}{SHIFT-*}{SHIFT-*}{CBM-G}{lblu}O{CBM-Y}P
+30013 print"{gry2} {CBM-M} {wht}    {CBM-M}    X      {CBM-G}{lblu}{CBM-G} {CBM-M}
+30014 print"{gry2} {CBM-M}    {wht} {CBM-M}{grn}X X {rvon}{orng} {grn}{rvof} XX  X{wht}{CBM-G}{lblu}O{CBM-Y}P
+30015 print"{gry2} {CBM-M} {wht}     {CBM-Y}{CBM-Y}{CBM-Y}{CBM-Y}{CBM-Y}{CBM-Y}{CBM-Y}{CBM-Y}{CBM-Y}{CBM-Y}{CBM-Y} {lblu}{CBM-G} {CBM-M}
+30016 print"{gry2} {CBM-M}  {red}{CBM-P}{CBM-I}{rvon}{CBM-Y}         {CBM-Y}{rvof}{CBM-I}{CBM-P} {lblu}O{CBM-Y}P
+30017 print"{gry2} {CBM-M}  {orng}{CBM-Y}{CBM-Y}O{CBM-Y}O{CBM-Y}{CBM-Y}{CBM-Y}{CBM-Y}{CBM-Y}P{CBM-Y}P{CBM-Y}{CBM-Y} {lblu}{CBM-G} {CBM-M}
+30018 print"{gry2} N{CBM-T}{CBM-T}{CBM-T}{CBM-T}{orng}{CBM-G}{gry2}{CBM-T}{lblu}{CBM-G}{gry2}{CBM-T}{CBM-T}{CBM-T}{CBM-T}{CBM-T}{lblu}{CBM-M}{gry2}{CBM-T}{CBM-M}{CBM-T}{CBM-T}{CBM-T}{lblu}O{CBM-Y}P{gry2}{CBM-T}
+30019 print"{gry2}N   {orng}  O{CBM-Y}O{CBM-Y}{CBM-Y}{CBM-Y}{CBM-Y}{CBM-Y}P{CBM-Y}P   {lblu}{CBM-G} {CBM-M}
+30020 print"     {orng} {CBM-G}         {CBM-M}   {lblu}O{CBM-Y}P
+30021 print"     {orng} {CBM-G}         {CBM-M}   {lblu}{CBM-H} {CBM-M}
+30022 print"                   {lblu}{CBM-T}{CBM-T} {CBM-T}{CBM-T}
+30023 print" {blu}sono nella sala da pranzo":rem**{home}
+30024 return
+30025 print"{wht}{CBM-@}{CBM-@}{CBM-@}{CBM-@}{CBM-@}{CBM-@}{CBM-@}{CBM-@}{CBM-@}{CBM-@}{CBM-@}{CBM-@}{CBM-@}{CBM-@}{CBM-@}{CBM-@}{CBM-@}{CBM-@}{CBM-@}{CBM-@}{CBM-@}{CBM-@}{CBM-@}{CBM-@}
+30026 print"{red}{CBM-+}{CBM-+}{CBM-+}{CBM-+}{CBM-+}{CBM-+}{CBM-+}{CBM-+}{CBM-+}{CBM-+}{CBM-+}{CBM-+}{CBM-+}{CBM-+}{CBM-+}{CBM-+}{CBM-+}{CBM-+}{CBM-+}{CBM-+}{CBM-+}{CBM-+}{CBM-+}{CBM-+}
+30027 print"{CBM-+}{CBM-+}{CBM-+}{CBM-+}{CBM-+}{CBM-+}{CBM-+}{CBM-+}{CBM-+}{CBM-+}{CBM-+}{CBM-+}{CBM-+}{CBM-+}{CBM-+}{CBM-+}{CBM-+}{CBM-+}{CBM-+}{CBM-+}{CBM-+}{CBM-+}{CBM-+}{CBM-+}
+30028 print"{CBM-+}{CBM-+}{CBM-+}{grn}{rvon} {rvof}{red}{CBM-+}{CBM-+} {wht}{CBM-P}{CBM-P}{CBM-P}{CBM-P}{red} {CBM-+}{CBM-+}{CBM-+}{CBM-+}{CBM-+}{CBM-+}{CBM-+}{CBM-+}{CBM-+}{CBM-+}{CBM-+}{CBM-+}
+30029 print"{red}{CBM-+}{CBM-+}{grn}{CBM-L}{rvon} {rvof}{CBM-J}{red}{CBM-+}{wht}{CBM-M}{pur}{CBM-A}{SHIFT-*}{SHIFT-*}{CBM-S}{wht}{CBM-G}{red}{CBM-+}{brn}{SHIFT--}{SHIFT--}{SHIFT--}{SHIFT--}{SHIFT--}{orng}{CBM-A}{SHIFT-*}{SHIFT-*}{SHIFT-*}{SHIFT-*}{CBM-S}
+30030 print"{red}{CBM-+}{CBM-+}{grn}{rvon}{CBM-J} {CBM-L}{rvof}{red}{CBM-+}{wht}{CBM-M}{pur}{SHIFT--}  {SHIFT--}{wht}{CBM-G}{red}{CBM-+}{brn}JJ{SHIFT-+}KK{orng}{SHIFT--}{lred}NIUM{orng}{SHIFT--}
+30031 print"{red}{CBM-+}{CBM-+}{grn}{CBM-T}{brn}{rvon} {rvof}{grn}{CBM-T}{red}{CBM-+}{wht}{CBM-M}{pur}{CBM-Z}{SHIFT-*}{SHIFT-*}{CBM-X}{wht}{CBM-G}{red}{CBM-+}{CBM-+}{CBM-+}{brn}{SHIFT--}{red}{CBM-+}{CBM-+}{orng}{SHIFT--}{lred}MKJN{orng}{SHIFT--}
+30032 print"{red}{CBM-+}{CBM-+}{brn}P{CBM-Y}O{red}{CBM-+}{wht}{CBM-M}{lblu}Q{wht}   {CBM-G}{red}{CBM-+}{CBM-+}{CBM-+}{brn}{SHIFT--}{red}{CBM-+}{CBM-+}{orng}{CBM-Z}{SHIFT-*}{SHIFT-*}{SHIFT-*}{SHIFT-*}{CBM-X}
+30033 print"{red}{CBM-+}{CBM-+}{CBM-+}{CBM-+}{CBM-+}{CBM-+}{wht}{CBM-M} {CBM-@}{CBM-@} {CBM-G}{red}{CBM-+}{CBM-+}{CBM-+}{brn}{SHIFT--}{red}{CBM-+}{CBM-+}{CBM-+}{CBM-+}{CBM-+}{CBM-+}{CBM-+}{CBM-+}
+30034 print"{red}{CBM-+}{CBM-+}{CBM-+}{CBM-+}{CBM-+}{CBM-+}{wht}{CBM-M} EE {CBM-G}{red}{CBM-+}{CBM-+}{CBM-+}{brn}{SHIFT--}{red}{CBM-+}{CBM-+}{CBM-+}{CBM-+}{CBM-+}{CBM-+}{CBM-+}{CBM-+}
+30035 print"{red}{CBM-+}{CBM-+}{CBM-+}{CBM-+}{CBM-+}{CBM-+}{wht}{CBM-M}{CBM-P}{CBM-P}{CBM-P}{CBM-P}{CBM-G}{red}{CBM-+}{CBM-+}{CBM-+}{brn}{SHIFT--}{red}{CBM-+}{CBM-+}{CBM-+}{CBM-+}{CBM-+}{CBM-+}{CBM-+}{CBM-+}
+30036 print"{wht}{CBM-T}{CBM-T}{CBM-T}{CBM-T}{CBM-T}{CBM-T}{CBM-T}{CBM-T}{CBM-T}{CBM-T}{CBM-T}{CBM-T}{CBM-T}{brn}UU{SHIFT-+}II{wht}{CBM-T}{CBM-T}{CBM-T}{CBM-T}{CBM-T}{CBM-T}
+30037 print"{down}{blu}sono nell'ingresso"
+30038 ifp(2)=0thenreturn
+30039 print"{home}{down}{down}{down}{down}{rght}{rght}{rght}{rght}{rght}{rght}{rght}{wht}   N{down}{left}{left}{left}{left}  N{pur}N{wht}{down}{left}{left}{left}{left} {CBM-M}{pur}N{wht} {down}{left}{left}{left}{left} {CBM-M} {pur}N{wht}{down}{left}{left}{left}{left} {CBM-M}{pur}N{wht} {down}{left}{left}{left}{left}";
+30040 print" {CBM-M}{lblu}Q{wht} {down}{left}{left}{left}{left}{CBM-P}{SHIFT-@}  {down}{left}{left}{left}{CBM-M} N{down}{left}{left}{left}{CBM-M}N":rem**{home}
+30041 return
+30042 print"{blu}{CBM-+}{CBM-+}{CBM-+}{CBM-+}{CBM-+}{CBM-+}{CBM-+}{CBM-+}{CBM-+}{CBM-+}{CBM-+}{CBM-+}{CBM-+}{CBM-+}{CBM-+}{CBM-+}{CBM-+}{CBM-+}{CBM-+}{CBM-+}{CBM-+}{CBM-+}{CBM-+}{CBM-+}{CBM-+}{CBM-+}
+30043 print"{CBM-+}{CBM-+}{CBM-+}{CBM-+}{CBM-+}{CBM-+}{CBM-+}{CBM-+}{CBM-+}{CBM-+}{CBM-+}{CBM-+}{CBM-+}{CBM-+}{CBM-+}{CBM-+}{CBM-+}{CBM-+}{CBM-+}{CBM-+}{CBM-+}{CBM-+}{CBM-+}{CBM-+}{CBM-+}{CBM-+}
+30044 print"{CBM-+}{CBM-+}{CBM-+}{CBM-+}{CBM-+}{CBM-+}{CBM-+}{rvon}       {rvof}{CBM-+}{CBM-+}{CBM-+}{CBM-+}{CBM-+}{CBM-+}{CBM-+}{CBM-+}{CBM-+}{CBM-+}{CBM-+}{CBM-+}
+30045 print"{CBM-+}{CBM-+}{CBM-+}{CBM-+}{CBM-+}{CBM-+}{CBM-+}{rvon}{CBM-D}{rvof}     {rvon}{CBM-F}{rvof}{CBM-+}{brn}{CBM-*}{rvon}        {CBM-*}{rvof}{CBM-+}
+30046 print"{brn}{CBM-T}{CBM-T}{CBM-T}{CBM-T}{CBM-T}{CBM-T}{lred}{rvon}{SHIFT-POUND}{CBM-C}{rvof}{CBM-I}{CBM-I}{CBM-I}{CBM-I}{CBM-I}{rvon}{CBM-V}{CBM-*}{rvof} {rvon}{orng} {rvof}{CBM-U}{CBM-U}{CBM-U}{CBM-U}{CBM-U}{CBM-U}{CBM-U}{rvon} {rvof}{brn}{CBM-T}
+30047 print"{cyn}     {rvon}{SHIFT-POUND}         {CBM-*}{rvof}{rvon}{orng} {rvof}{wht}L{CBM-P}{CBM-P}{CBM-P}{CBM-P}{CBM-P}{SHIFT-@}{rvon}{orng} {rvof}
+30048 print"{cyn}    {rvon}{SHIFT-POUND}           {CBM-*}{rvof}{rvon}{orng}{CBM-T}{CBM-T}{CBM-T}{CBM-T}{CBM-T}{CBM-T}{CBM-T} {rvof}
+30049 print"{cyn}   {rvon}{SHIFT-POUND}             {CBM-*}{rvof}     {brn}{rvon} {orng} {rvof}
+30050 print"{cyn}  {CBM-M}{rvon}{blu}O{CBM-Y}{CBM-Y}{CBM-Y}{CBM-Y}{CBM-Y}{CBM-Y}{CBM-Y}{CBM-Y}{CBM-Y}{CBM-Y}{CBM-Y}{CBM-Y}{CBM-Y}P{cyn}{rvof}{CBM-G}    {brn}{CBM-*}{rvon}{orng} {rvof}
+30051 print"{cyn}  {CBM-M}{rvon}{blu}L{CBM-P}{CBM-P}{CBM-P}{CBM-P}{CBM-P}{CBM-P}{CBM-P}{CBM-P}{CBM-P}{CBM-P}{CBM-P}{CBM-P}{CBM-P}{SHIFT-@}{cyn}{rvof}{CBM-G}
+30052 print"{brn}    {CBM-M}{CBM-G}         {CBM-M}{CBM-G}
+30053 print"{brn}    {CBM-M}{CBM-G}{$a0}        {CBM-M}{CBM-G}
+30054 print"{down}{blu}sono nella stanza da letto"
+30055 ifp(3)=0then30057:rem**{home}
+30056 print"{home}{down}{down}{down}{down}{down}{rght}{rght}{rght}{rght}{rght}{rght}{rght}{rght}{rght}{rght}{rght}{rght}{rght}{rght}{rght}{rght}{rght}{orng}M     {brn}M{orng}{CBM-*}{down}{left}{left}{left}{left}{left}{left}{left}{left}{rvon}{CBM-*}{cyn}       {down}{left}{left}{brn}{CBM-T}{orng}{CBM-T}{rvof}"
+30057 ifnm(7)=0thenreturn
+30058 print"{home}{down}{down}{down}{down}{down}{down}{down}{down}{down}{down}{down}{rght}{rght}{rght}{rght}{rght}{rght}{rght}{orng}{rvon}{SHIFT-POUND}{brn}{CBM-P}{CBM-P}{CBM-P}{CBM-P}{CBM-P}{orng}{CBM-*}{down}{left}{left}{left}{left}{left}{rvof}{left}{left}{wht}{CBM-T}{CBM-T}{CBM-T}{CBM-T}{CBM-T}{CBM-T}{CBM-T}"
+30059 return
+30060 print"{wht}M          {CBM-@}{CBM-@}{CBM-@}{CBM-@}{CBM-@}{CBM-@}{CBM-@}  N
+30061 print" {wht}M       {gry1}{CBM-M}{CBM-G}{wht}{CBM-G}    {brn}{rvon}{SHIFT-POUND}{rvof}{SHIFT-POUND}{wht} N
+30062 print" {lblu} M     {red} {rvon}{SHIFT-POUND}{CBM-*}{rvof}{wht}{CBM-G}  {brn} {rvon}{SHIFT-POUND}{rvof}{SHIFT-POUND}{lblu} N
+30063 print" {gry2}  M     {yel}JK{rvon}{orng}    {brn}{rvof}{SHIFT-POUND}{gry2} N
+30064 print" {gry1}   M{CBM-@}{CBM-@}{CBM-@}{CBM-@}{CBM-@}{CBM-@}{CBM-@}{CBM-@}{CBM-@}{CBM-@}{CBM-@}N
+30065 print"    {CBM-M}           {CBM-G}
+30066 print"    {CBM-M}           {CBM-G}
+30067 print"    {CBM-M}           {CBM-G}
+30068 print"    {CBM-M}           {CBM-G}
+30069 print"    N{CBM-T}{CBM-T}{CBM-T}{CBM-T}{CBM-T}{CBM-T}{CBM-T}{CBM-T}{CBM-T}{CBM-T}{CBM-T}M
+30070 print" {gry2}  N             M
+30071 print"{lblu}  N               M
+30072 print"{wht} N                 M
+30073 print"N{blu}sono nel sottor.{wht}   M
+30074 return
+30075 print"  {lblu} N  {gry2}{$a0}{CBM-Y}F {gry1}N NM M{gry2} F{CBM-Y}   M
+30076 print"{lblu} {CBM-Y}C{CBM-P}{gry2}  N {gry1} E{CBM-P}N  M{CBM-P}E{gry2}  M {lblu} {CBM-P}C{CBM-Y}
+30077 print" N{gry2}  EF{CBM-@}{gry1} N N    M M{gry2} {CBM-@}FE  M
+30078 print"{lblu}N   N{gry1} {CBM-T}DRN      MRD{CBM-T} M{lblu}   M
+30079 print"   N{gry1}  N N        M M  M
+30080 print"{lblu}{CBM-Y}E{gry2}DC{gry1}FR{CBM-P}N          M{CBM-P}RF{gry2}CD{lblu}E{CBM-Y}
+30081 print"   {gry1}    {CBM-G}          {CBM-M}
+30082 print"{gry1}       {CBM-G}   {$a0}      {CBM-M}
+30083 print" {gry1}      L{CBM-P}{CBM-P}{CBM-P}{CBM-P}{CBM-P}{CBM-P}{CBM-P}{CBM-P}{CBM-P}{CBM-P}{SHIFT-@}
+30084 print" {gry1}     N            M
+30085 print" {gry2}    N{$a0}             M
+30086 print" {lblu}   N          {CBM-M}{CBM-@}{CBM-@}{CBM-@}{CBM-G} M
+30087 print"{wht}   N          {rvon}{brn}{SHIFT-POUND}{orng}{CBM-M}{CBM-T}{CBM-T}{CBM-T}{CBM-G}{brn}{CBM-*}{rvof} {wht}M
+30088 print"{blu}sono in soffitta{wht} {CBM-T}{CBM-T}{CBM-T}{CBM-T}
+30089 return:rem**{home}
+30090 print
+30091 print"           {CBM-M}{CBM-T}{CBM-G}
+30092 print"     {brn}{rvon}{SHIFT-POUND}{CBM-T}{CBM-T}{CBM-T}{CBM-T}{CBM-T}{CBM-T}{CBM-*}{CBM-T}{CBM-*}{rvof}
+30093 print"    {rvon}{SHIFT-POUND}{CBM-T}{CBM-T}{CBM-T}{CBM-T}{CBM-T}{CBM-T}{CBM-T}{CBM-T}{CBM-T}{CBM-T}{CBM-*}{rvof}
+30094 print"    {wht}{CBM-Y}{rvon}{orng}{CBM-Y}{CBM-Y}{CBM-Y}{CBM-Y}{CBM-Y}{CBM-Y}{CBM-Y}{CBM-Y}{CBM-Y}{CBM-Y}{rvof}{wht}{CBM-Y}
+30095 print"     {orng}{rvon} {wht}L{CBM-P}{orng} {wht}LL{orng} {wht}L{CBM-P}{orng} {rvof}
+30096 print"     {orng}{rvon}          {rvof}
+30097 print"     {rvon} {wht}LL{orng}{CBM-M}{blu} {rvof} {rvon}{orng} {wht}LL{orng} {rvof}
+30098 print"{rvon}{grn}     {orng} {wht}LL{orng}{CBM-M}{blu} {rvof} {rvon}{orng} {wht}LL{orng} {grn}           {rvof}
+30099 print"{rvon}{CBM-Q}{SHIFT-+}{SHIFT-+}{SHIFT-+}{CBM-W}{orng}   {CBM-M}{blu}{rvof}{SHIFT-POUND} {orng}{rvon}    {grn}{CBM-Q}{SHIFT-+}{SHIFT-+}{SHIFT-+}{SHIFT-+}{SHIFT-+}{SHIFT-+}{SHIFT-+}{SHIFT-+}{SHIFT-+}{CBM-W}{rvof}
+30100 print"{rvon}{grn}     {CBM-T}{CBM-T}{CBM-T}{rvof}{SHIFT-POUND}{wht}{CBM-T}{CBM-T}{grn}{CBM-*}{rvon}{CBM-T}{CBM-T}{CBM-T}          {lgrn} "
+30101 print"{rvon}{grn}       {rvof}{SHIFT-POUND}{wht}{CBM-T}{CBM-T}{CBM-T}{CBM-T}{grn}{CBM-*}{rvon}        {lgrn}     "
+30102 print"{rvon}{grn}      {rvof}{SHIFT-POUND}{wht}{CBM-Y}{CBM-Y}{CBM-Y}{CBM-Y}{CBM-Y}{CBM-Y}{grn}{CBM-*}{rvon}  {lgrn}          "
+30103 print"{rvon}{grn}     {rvof}{SHIFT-POUND}{wht}{CBM-U}{CBM-U}{CBM-U}{CBM-U}{CBM-U}{CBM-U}{CBM-U}{CBM-U}{grn}{CBM-*}{rvon}   {lgrn}        ":rem**{home}
+30104 print" {blu}sono sul sentiero"
+30105 return
+30106 print"{gry1}{CBM-+}{CBM-+}{CBM-+}    {CBM-+}{CBM-+}
+30107 print"    {CBM-+}{CBM-+} {CBM-+}  {CBM-+}{CBM-+}
+30108 print"      {CBM-+} {CBM-+}{CBM-+}{CBM-+} {CBM-+} {CBM--}
+30109 print"           {wht}  {CBM-A}{CBM-S}{CBM-A}{CBM-S}
+30110 print"             {SHIFT--}{SHIFT--}{SHIFT--}{SHIFT--}
+30111 print"           {rvon}{brn}{SHIFT-POUND} {CBM-C}{CBM-V}{CBM-C}{CBM-V} {CBM-*}
+30112 print"{lblu}{CBM-O}{CBM-O}{CBM-O}{CBM-O}{CBM-O}{CBM-O}{CBM-O}{CBM-O}{CBM-O}{CBM-O}{CBM-O}{brn}{rvon}{CBM-T}{CBM-T}{CBM-T}{CBM-T}{CBM-T}{CBM-T}{CBM-T}{CBM-T}{rvof}{lblu}{CBM-O}{CBM-O}{CBM-O}{CBM-O}{CBM-O}{CBM-O}{CBM-O}
+30113 print"{gry1}{rvon}N{CBM-T}{CBM-T}N{CBM-T}{CBM-T}N{CBM-T}{CBM-T}N{CBM-T}{orng}O{CBM-Y}O{CBM-Y}{CBM-Y}O{CBM-Y}P{gry1}{CBM-T}{CBM-T}N{CBM-T}{CBM-T}{rvof}{SHIFT-POUND}
+30114 print"{rvon}{CBM-T}N{CBM-T}{CBM-T}N{CBM-T}{CBM-T}N{CBM-T}{CBM-T}N{orng}OO{CBM-Y}{CBM-Y}O{CBM-Y}PP{gry1}N{CBM-T}{CBM-T}N{CBM-T}{CBM-T}{rvof}{SHIFT-POUND}
+30115 print"{rvon}{CBM-T}{CBM-T}N{CBM-T}{CBM-T}N{CBM-T}{CBM-T}N{CBM-T}{CBM-T}{orng}O{CBM-Y}{CBM-Y}O{CBM-Y}{CBM-Y}OP{gry1}{CBM-T}N{CBM-T}{CBM-T}{rvof}{SHIFT-POUND}
+30116 print"{rvon}N{CBM-T}{CBM-T}N{CBM-T}{CBM-T}N{CBM-T}{CBM-T}N{CBM-T}{orng}O{CBM-Y}O{CBM-Y}{CBM-Y}O{CBM-Y}P{gry1}{CBM-T}{CBM-T}N{CBM-T}{CBM-T}{rvof}{SHIFT-POUND}
+30117 print"{rvon}{CBM-T}N{CBM-T}{CBM-T}N{CBM-T}{CBM-T}N{CBM-T}{CBM-T}N{CBM-T}{CBM-T}N{CBM-T}{CBM-T}N{CBM-T}{CBM-T}N{CBM-T}{CBM-T}N{CBM-T}{CBM-T}{rvof}{SHIFT-POUND}
+30118 print"{rvon}{CBM-T}{CBM-T}{CBM-T}{CBM-T}{CBM-T}{CBM-T}{CBM-T}{CBM-T}{CBM-T}{CBM-T}{CBM-T}{CBM-T}{CBM-T}{CBM-T}{CBM-T}{CBM-T}{CBM-T}{CBM-T}{CBM-T}{CBM-T}{CBM-T}{CBM-T}{CBM-T}{CBM-T}{CBM-T}{CBM-T}
+30119 print"{cyn}{CBM-Y}{CBM-Y}{CBM-Y}{CBM-Y}{CBM-Y}{CBM-Y}{CBM-Y}{CBM-Y}{CBM-Y}{CBM-Y}{CBM-Y}{CBM-Y}{CBM-Y}{CBM-Y}{CBM-Y}{CBM-Y}{CBM-Y}{CBM-Y}{CBM-Y}{CBM-Y}{CBM-Y}{CBM-Y}{CBM-Y}{CBM-Y}{CBM-Y}{CBM-Y}
+30120 print"{blu} sono sul tetto":rem**{home}
+30121 return
+30122 print"{rvon}{grn}                           "
+30123 print"{rvon}                           "
+30124 print"          {CBM-M}{CBM-*}{SHIFT-POUND}{CBM-G} {CBM-M}{CBM-*}{rvon}     {rvof}{SHIFT-POUND}{CBM-G}
+30125 print"{rvon}{blu}           {CBM-*}{SHIFT-POUND}   {CBM-*}{rvof}{CBM-G}{CBM-M}{grn}{CBM-*}{SHIFT-POUND}{blu}{CBM-M}{rvon}{SHIFT-POUND}    "
+30126 print"{rvon}                   {CBM-*}{SHIFT-POUND}      "
+30127 print"{rvon}N                          "
+30128 print"{rvon}{grn}M{$a0}MN{blu}  MN                 {grn}  "
+30129 print"{rvon} LNN  M{blu}N             {grn}      "
+30130 print"{rvon}N{CBM-L}N   {CBM-M}N {blu}          {grn}        "
+30131 print"{rvon} {CBM-L}{CBM-K}   {CBM-M}{CBM-G}                   "
+30132 print"{rvon} {CBM-L}{CBM-K}                        
+30133 print"{rvon}                           "
+30134 print"{blu}sono vicino al ruscello":rem**{home}
+30135 ifp(9)=0thenreturn
+30136 print"{home}{rght}{rght}{rght}{rght}{rght}{rght}{rght}{rght}{rght}{rght}{down}{rght}{rght}{brn}{rvon}  {CBM-M}{down}{left}{left}{left}  {CBM-M}{down}{left}{left}{left}  {CBM-M}{down}{left}{left}{left}  {CBM-M}{down}{left}{left}{left}  {CBM-M}{down}{left}{left}{left}  {CBM-M}{down}{left}{left}{left}";
+30137 print"  {CBM-M}{down}{left}{left}{left}  {CBM-M}{down}{left}{left}{left}  {CBM-M}{down}{left}{left}{left}{CBM-P}{CBM-P}{SHIFT-@}"
+30138 return
+30139 print"{rvon}{grn}                   M N    "
+30140 print"{rvon}           {rvof}{SHIFT-POUND}{CBM-G}  {CBM-M}{CBM-*}{rvon}   M{CBM-G}    "
+30141 print"{rvon}   M{CBM-G}    {rvof}{SHIFT-POUND}{CBM-G}{rvon}{blu}{SHIFT-POUND}    {CBM-*}{grn}{rvof}{CBM-*}{rvon}  {CBM-M}N    "
+30142 print"{rvon}    MN{rvof}{SHIFT-POUND}{CBM-G} {blu}{rvon}{SHIFT-POUND}       {CBM-*}{rvof}{grn}{CBM-G}{CBM-M}{CBM-*}{rvon}     "
+30143 print"{rvon}    {CBM-M} {blu}{SHIFT-POUND}             {CBM-*}{grn}     "
+30144 print"{rvon}   M{CBM-N}{CBM-G}    {blu}        {grn}        "
+30145 print"{rvon}    M{CBM-G}       {blu}   {grn}          "
+30146 print"{rvon}    {CBM-M}{CBM-G}                    "
+30147 print"{rvon}                          "
+30148 print"{rvon}                          "
+30149 print"{rvon}                          "
+30150 print"{rvon}                          "
+30151 print"{blu} sono in giardino"
+30152 return
+30153 print"{rvon}{grn}                         "
+30154 print"{rvon}{CBM-Q}M{SHIFT-+}{SHIFT-+}{SHIFT-+}{SHIFT-+}{SHIFT-+}{SHIFT-+}{SHIFT-+}{SHIFT-+}{SHIFT-+}{SHIFT-+}{SHIFT-+}{SHIFT-+}{SHIFT-+}{SHIFT-+}{SHIFT-+}{SHIFT-+}{SHIFT-+}{SHIFT-+}{SHIFT-+}{SHIFT-+}{SHIFT-+}{SHIFT-+}{CBM-W}"
+30155 print"{rvon}{CBM-Q}{SHIFT-+}L{SHIFT-+}N{SHIFT-+}{SHIFT-+}{SHIFT-+}{SHIFT-+}{SHIFT-+}{SHIFT-+}{SHIFT-+}{SHIFT-+}{SHIFT-+}{SHIFT-+}{SHIFT-+}{SHIFT-+}{SHIFT-+}{SHIFT-+}{SHIFT-+}{SHIFT-+}{SHIFT-+}{SHIFT-+}{SHIFT-+}{CBM-W}"
+30156 print"{rvon}  M{CBM-M}N                    "
+30157 print"{rvon}  {CBM-M}N                     "
+30158 print"{rvon}  {CBM-M}{CBM-G}                     "
+30159 print" {CBM-M}{CBM-*}{rvon}                      "
+30160 print"{rvon}{blu}  {CBM-*}{rvof}{grn}{CBM-G} {CBM-M}{CBM-*}{rvon}                  ":rem**{home}
+30161 print"{rvon}{blu}      {CBM-*}{grn}{rvof}{CBM-*}{rvon}                 "
+30162 print"{rvon}{blu}       {CBM-*}{grn}                 "
+30163 print"{rvon} {blu}       {grn}                 "
+30164 print"{rvon}  {blu}     {grn}                  "
+30165 print"{blu} sono in un campo"
+30166 return
+30167 print"{rvon}{grn}                         "
+30168 print"{rvon}{CBM-Q}M{SHIFT-+}{SHIFT-+}{SHIFT-+}{SHIFT-+}{SHIFT-+}{SHIFT-+}{SHIFT-+}{SHIFT-+}{SHIFT-+}{SHIFT-+}{SHIFT-+}{SHIFT-+}{SHIFT-+}{SHIFT-@}{SHIFT-+}{SHIFT-+}{SHIFT-+}{SHIFT-+}{SHIFT-+}{SHIFT-+}{SHIFT-+}{SHIFT-+}{CBM-W}"
+30169 print"{rvon}{CBM-Q}{SHIFT-+}L{SHIFT-+}N{SHIFT-+}{SHIFT-+}{SHIFT-+}{SHIFT-+}{SHIFT-+}{SHIFT-+}{SHIFT-+}{SHIFT-+}{SHIFT-+}MNN{SHIFT-+}{SHIFT-+}{SHIFT-+}{SHIFT-+}{SHIFT-+}{SHIFT-+}{SHIFT-+}{CBM-W}"
+30170 print"{rvon}  M{CBM-M}N          M{CBM-G}        "
+30171 print"{rvon}  {CBM-M}N           {CBM-M}{CBM-G}        "
+30172 print"{rvon}  {CBM-M}{CBM-G}                     "
+30173 print"{rvon}                   MMN   "
+30174 print"{rvon}                   {CBM-M}N    ":rem**{home}
+30175 print"{rvon}                  NM{CBM-G}N   "
+30176 print"{rvon}                   {CBM-M}NM   "
+30177 print"{rvon}                   {CBM-M}{CBM-G}    "
+30178 print"{rvon}                         "
+30179 print"{blu} sono in un campetto"
+30180 return
+30181 print"{rvon}{grn}                         "
+30182 print"{rvon}                         "
+30183 print"{rvon}  {brn}{CBM-G}{grn}                {brn}Y{grn}     "
+30184 print"{rvon} {brn} {CBM-G}L{CBM-P}{CBM-P}{CBM-P}{CBM-P}{CBM-P}{CBM-P}{CBM-P}{CBM-P}{CBM-P}{CBM-P}{CBM-P}{CBM-P}{CBM-P}{CBM-P}{CBM-P}Y {grn}    "
+30185 print"{rvon}{brn}{CBM-P} {CBM-G}{grn}    {rvof}{SHIFT-POUND}{rvon}{CBM-G} {CBM-M}{rvof}{CBM-*}{rvon}       {brn}YML{CBM-P}{CBM-P}{CBM-P}"
+30186 print"{rvon}{grn} {brn} {CBM-G}{grn}    {CBM-*}{rvof}{CBM-*}{rvon}{CBM-P}{rvof}{SHIFT-POUND}{rvon}{SHIFT-POUND}       {brn}Y{CBM-M}{grn}    "
+30187 print"{rvon}{grn} {brn} {CBM-G}L{CBM-P}{CBM-P}{CBM-P}{CBM-P}{wht}{SHIFT-POUND}{CBM-U}{CBM-*}{brn}{CBM-I}{CBM-P}{CBM-O}{CBM-I}{rvof}{CBM-U}  {CBM-U}{rvon}{CBM-O}N{grn}    "
+30188 print"{rvon}{grn} {brn} {CBM-G}{grn}     {wht}W W{rvof}         {brn}{CBM-*}{rvon}{grn}    "
+30189 print"{rvon}{brn}{CBM-P} {CBM-G}{grn}     M{wht} {grn}N{rvof}          {rvon}{brn}L{CBM-P}{CBM-P}{CBM-P}"
+30190 print"{rvon}{grn} {brn} {CBM-G}L{CBM-P}{CBM-P}{CBM-P}{CBM-P}{CBM-Z}{wht}{CBM-I}{brn}{CBM-X}{CBM-*}{rvof}     {CBM-M}  {rvon}{SHIFT-POUND}{grn}    "
+30191 print"{rvon}{grn}  {brn}{CBM-G}{grn}       {rvof}{SHIFT-POUND}{rvon}{CBM-M}{rvof} {rvon}{CBM-*}{rvof}  {rvon}{SHIFT-POUND} {CBM-*}{rvof} {rvon}     "
+30192 print"{rvon}{grn}          {CBM-*}{CBM-M}{rvof} {rvon}   {CBM-M}{rvof}{CBM-N}{rvon}{CBM-M}{rvof} {rvon}     "
+30193 print"{rvon}{grn}           {CBM-M}{rvof} {rvon}   {CBM-M}{rvof}{CBM-N}{rvon}{CBM-M}{rvof} {rvon}     ":rem**{home}
+30194 print"{blu} sono in un campo"
+30195 return
+30196 print"{rvon}{grn}{CBM-R}{CBM-R}{CBM-R}{CBM-R}{CBM-R}{CBM-R}{CBM-R}{CBM-R}{CBM-R}{CBM-R}{CBM-R}{CBM-R}{CBM-R}{CBM-R}{CBM-R}{CBM-R}{CBM-R}{CBM-R}{CBM-R}{CBM-R}{CBM-R}{CBM-R}{CBM-R}{CBM-R}{CBM-R}{CBM-R}"
+30197 print"{rvon}{SHIFT-+}{SHIFT-+}{SHIFT-+}{SHIFT-+}{SHIFT-+}{SHIFT-+}{SHIFT-+}{SHIFT-+}{SHIFT-+}{SHIFT-+}{SHIFT-+}{SHIFT-+}{SHIFT-+}{SHIFT-+}{SHIFT-+}{SHIFT-+}{SHIFT-+}{SHIFT-+}{SHIFT-+}{SHIFT-+}{SHIFT-+}{SHIFT-+}{SHIFT-+}{SHIFT-+}{SHIFT-+}{SHIFT-+}"
+30198 fori=1to12
+30199 print"{rvon}                          "
+30200 next
+30201 print"{blu}sono in un terreno vasto{grn}"
+30202 print"{home}{down}{down}{down}{down}{down}{down}{down}{rght}{rght}{rght}{rght}{rght}{rght}{rght}{rght}{rght}{rght}{rght}{rght}{rght}{rvon}MN{down}{left}{left}{left}M{CBM-M}N{down}{left}{left}M{CBM-G}{down}{left}{left}{CBM-M}{CBM-G}N{down}{left}{left}{left}{CBM-M}N{down}{left}{left}{CBM-M}{CBM-G}"
+30203 ifp(13)<>1andp(13)<>2thenreturn
+30204 print"{home}{down}{down}{down}{down}{down}{rght}{rght}{rght}{rght}{rght}{rght}{rght}{rght}{rght}{rght}{rght}{rght}{rght}{rvon}MN{down}{left}{left}{left}M{CBM-M}N{down}{left}{left}M{CBM-G}"
+30205 ifp(13)<>2thenreturn
+30206 print"{home}{rght}{rght}{rght}{rght}{rght}{rght}{rght}{rght}{rght}{rght}{rght}{rght}{rght}{rvon}MN{down}{left}{left}{left}M{CBM-M}N{down}{left}{left}M{CBM-G}{down}{left}{left}M{CBM-G}N{down}{left}{left}{left}{CBM-M}N"
+30207 return
+30208 print
+30209 print
+30210 print"{rvon}{SHIFT-POUND}    {CBM-*}{rvof}    {rvon}{SHIFT-POUND}    {CBM-*}"
+30211 print"{grn}{rvon}    M{CBM-G}{CBM-G} {CBM-*}{SHIFT-POUND}     {rvof}{CBM-+}
+30212 print"{grn}{rvon}   MNN  {rvof}{SHIFT-POUND}{CBM-*}{rvon}   {rvof}{CBM-+}
+30213 print"{grn}{rvon} LM M{CBM-G} {rvof}{SHIFT-POUND}{wht}{CBM-T}{CBM-T}{grn}{CBM-*}{rvon}  {rvof}{CBM-+}
+30214 print"{grn}{rvon} MMN{CBM-M}{CBM-G}{rvof}{SHIFT-POUND}{wht}{CBM-T}{CBM-T}{CBM-T}{CBM-T}{grn}{CBM-*}{rvon}  {rvof}{CBM-+}
+30215 print"{grn}{rvon} MN  {rvof}{SHIFT-POUND}{wht}{CBM-Y}{CBM-Y}{CBM-Y}{CBM-Y}{CBM-Y}{CBM-Y}{grn}{CBM-*}{rvon}  {rvof}{CBM-+}
+30216 print"{grn}{rvon} {CBM-M}{CBM-G} {rvof}{SHIFT-POUND}{wht}{CBM-U}{CBM-U}{CBM-U}{CBM-U}{CBM-U}{CBM-U}{CBM-U}{CBM-U}{grn}{CBM-*}{rvon} {rvof}{CBM-+}
+30217 print"{blu}{down}{down}{down}{down} sono sulla cima dell'olivo"
+30218 ifp(16)=1thenreturn
+30219 print"{home}{down}{down}{rght}{rght}{rght}{rght}{rght}{rght}{rght}{rght}{rght}{rght}{rght}{rght}{rght}{rght}{rght}{rght}{rght}{rght}{rght}{lblu}{CBM-@}{CBM-@}{CBM-@}{down}{left}{left}{left}{left}N   M{down}{left}{left}{left}{left}{left}{left}{left}U{SHIFT-*}IN{CBM-T}MU{SHIFT-*}I{down}{left}{left}{left}{left}{left}{left}{left}{left}{left}";
+30220 print"M( {blu}+ +{lblu} )N{down}{left}{left}{left}{left}{left}{left}{left}{left}MKM{$a0}NJN{down}{left}{left}{left}{left}{left}{left}{left}";
+30221 print"{SHIFT--} {wht}N{lblu}{CBM-+}{wht}M{lblu} {SHIFT--}{down}{left}{left}{left}{left}{left}{left}{left}{SHIFT--}{CBM-M} {CBM-+} {CBM-G}{SHIFT--}{down}{left}{left}{left}{left}{left}{left}{left}{SHIFT--}{CBM-M}{$a0}{CBM--} {CBM-G}{SHIFT--}{down}{left}{left}{left}{left}{left}{left}";
+30222 printchr$(34)" {CBM--} "chr$(34)
+30223 return
+30224 print"{brn}
+30225 print"{rvon}{rght}{SHIFT-POUND}  {CBM-*}{rght}{rght}{rght}{rght}{rght}{rght}{rght}{rght}{rght}{rght}{rght}{rght}{rght}{rght}{rght}{rght}{SHIFT-POUND} ":rem**{home}
+30226 print"{rvon}{SHIFT-POUND}    {CBM-*}{rght}{rght}{rght}{rght}{rght}{rght}{rght}{rght}{rght}{rght}{rght}{rght}{rght}{rght}{SHIFT-POUND}  "
+30227 print"{rvon}      {CBM-*}{rght}{rght}{rght}{rght}{rght}{rght}{rght}{rght}{rght}{rght}{SHIFT-POUND}{CBM-*}{SHIFT-POUND}   "
+30228 print"{rvon}        {CBM-*}{rght}{rght}{rght}{rght}{SHIFT-POUND}         "
+30229 print"{rvon}         {CBM-*}{rght}{rght}{SHIFT-POUND}          "
+30230 print"{rvon}    N     {CBM-*}{SHIFT-POUND}           "
+30231 print"{rvon}{grn}   M{CBM-G}     {rvof}{SHIFT-POUND}{CBM-*}{rvon}           "
+30232 print"{rvon}   ML    {rvof}{SHIFT-POUND}{wht}{CBM-T}{CBM-T}{grn}{CBM-*}{rvon}          "
+30233 print"{rvon}   {CBM-M}{CBM-G}   {rvof}{SHIFT-POUND}{wht}{CBM-T}{CBM-T}{CBM-T}{CBM-T}{grn}{CBM-*}{rvon}         "
+30234 print"{rvon}       {rvof}{SHIFT-POUND}{wht}{CBM-Y}{CBM-Y}{CBM-Y}{CBM-Y}{CBM-Y}{CBM-Y}{grn}{CBM-*}{rvon}        "
+30235 print"{rvon}      {rvof}{SHIFT-POUND}        {CBM-*}{rvon}       "
+30236 print"{rvon}     {rvof}{SHIFT-POUND}{wht}{CBM-U}{CBM-U}{CBM-U}{CBM-U}{CBM-U}{CBM-U}{CBM-U}{CBM-U}{CBM-U}{CBM-U}{grn}{CBM-*}{rvon}      "
+30237 print"{blu} sono sul sentiero"
+30238 return
+30239 print"{down}{down}{grn}
+30240 print"  {rvon}{lgrn}{SHIFT-POUND}   {CBM-*}{grn}{SHIFT-POUND}{CBM-*}{rvof}      {rvon}{lgrn}{SHIFT-POUND}{CBM-*}{rvof}   {rvon}{grn}{SHIFT-POUND}
+30241 print" {rvon}{lgrn}{SHIFT-POUND}     {CBM-*}{grn}  {SHIFT-POUND}{CBM-*}{SHIFT-POUND}{CBM-*}{lgrn}{SHIFT-POUND}  {CBM-*}{grn}{SHIFT-POUND}  "
+30242 print"{rvon}{lgrn}        {CBM-*}{grn} {CBM-*}{SHIFT-POUND} {lgrn}{SHIFT-POUND}     {CBM-*}{grn} "
+30243 print"{rvon}{lgrn}         {CBM-*}{grn} {CBM-*}{lgrn}{SHIFT-POUND}        "
+30244 print"{rvon}{lgrn}          {CBM-*}{SHIFT-POUND}         "
+30245 print"{rvon}{brn}{CBM-T}{CBM-T}{CBM-T}{CBM-T}{CBM-T}{CBM-T}{CBM-T}{CBM-T}{CBM-T}{CBM-T}{rvof}{SHIFT-POUND}{CBM-*}{rvon}{CBM-T}{CBM-T}{CBM-T}{CBM-T}{CBM-T}{CBM-T}{CBM-T}{CBM-T}{CBM-T}"
+30246 print"{rvon}         {rvof}{SHIFT-POUND}{wht}{CBM-T}{CBM-T}{brn}{CBM-*}{rvon}        "
+30247 print"{rvon}        {rvof}{SHIFT-POUND}{wht}{CBM-T}{CBM-T}{CBM-T}{CBM-T}{brn}{CBM-*}{rvon}       "
+30248 print"{down}{down}{blu}sono in una vallata"
+30249 return
+30250 print"{down}{down}{rvon}{grn}        {CBM-*}"
+30251 print"{rvon}{grn}         {CBM-*}{rvof}{blu}{SHIFT-*} {SHIFT-*} {SHIFT-*} {SHIFT-*} {red}{rvon}{SHIFT-POUND}{rvof}{wht}{CBM-G}{blu}{SHIFT-*}{SHIFT-*}{SHIFT-*}"
+30252 print"{rvon}{grn}          {CBM-*}{rvof}{blu} {SHIFT-*} {SHIFT-*} {SHIFT-*}{red}{rvon}{SHIFT-POUND} {rvof}{wht}{CBM-G}{blu}{SHIFT-*}"
+30253 print"{rvon}{grn}   {CBM-G}         {CBM-*}{rvof}{blu} {SHIFT-*} {pur}{CBM-*}{rvon}  {rvof}{SHIFT-POUND}{blu}{SHIFT-*} {SHIFT-*}"
+30254 print"{rvon}{grn}  M{CBM-G}{CBM-G}       {CBM-P}{CBM-O}{rvof}{wht}{CBM-I}{CBM-I}{CBM-I}{CBM-I}{CBM-I}{CBM-I}{CBM-O}{CBM-P}{blu}{SHIFT-*}"
+30255 print"{rvon}{grn} {CBM-M}{CBM-M}N       {CBM-M}PP{rvof}{brn}PPPPPPPP{blu} {SHIFT-*}"
+30256 print"{rvon}{grn}  M{CBM-H}          {rvof}{blu}{SHIFT-*}{cyn}{SHIFT-*}{blu}{SHIFT-*} {SHIFT-*} {SHIFT-*} {SHIFT-*}"
+30257 print"{rvon}{grn}  {CBM-M}{CBM-G}          {CBM-*}{rvof}{blu}{SHIFT-*}{SHIFT-*}{cyn}{SHIFT-*}{blu}{SHIFT-*} {SHIFT-*}{cyn}{SHIFT-*}{blu}{SHIFT-*}{SHIFT-*}"
+30258 print"{rvon}{grn}   {CBM-Y}D          {CBM-*}{rvof}{blu}{SHIFT-*}{SHIFT-*}{cyn}{SHIFT-*}{blu}{SHIFT-*}{cyn}{SHIFT-*}{blu}{SHIFT-*}{SHIFT-*}"
+30259 return
+30260 print"                      {brn}{CBM-R}
+30261 print"{orng}  {SHIFT--}                 {red} {rvon}{SHIFT-POUND}{rvof}{brn}{CBM-K}
+30262 print"{orng}M   N               {red}{rvon}{SHIFT-POUND}{SHIFT--}{rvof}{brn}{CBM-K}
+30263 print"{orng} {rvon}{SHIFT-POUND} {CBM-*}{rvof}               {red}{rvon}{SHIFT-POUND}N{SHIFT--}{rvof}{brn}{CBM-K}
+30264 print"{blu}{SHIFT-*}{SHIFT-*}{SHIFT-*}{SHIFT-*}{SHIFT-*}{SHIFT-*}{SHIFT-*}{SHIFT-*}{SHIFT-*}{SHIFT-*}{SHIFT-*}{SHIFT-*}{SHIFT-*}{SHIFT-*}{SHIFT-*}{SHIFT-*}{SHIFT-*}{SHIFT-*}{red}{rvon}{SHIFT-POUND}Ns1{rvof}{brn}{CBM-K}{blu}{SHIFT-*}{SHIFT-*}{SHIFT-*}{SHIFT-*}
+30265 print"{blu}{SHIFT-*}{SHIFT-*}{cyn}{SHIFT-*}{SHIFT-*}{blu}{SHIFT-*}{SHIFT-*}{SHIFT-*}{SHIFT-*} {SHIFT-*}{SHIFT-*}{SHIFT-*}{wht}{CBM-M}{blu}{SHIFT-*}{wht}{CBM-H}{blu}{SHIFT-*}{SHIFT-*}{red}{rvon}{SHIFT-POUND}{SHIFT-*}{SHIFT-*}{SHIFT-*}{CBM-X}{rvof}{brn}{CBM-K}{blu}{SHIFT-*}{SHIFT-*} {SHIFT-*}
+30266 print"{blu}{SHIFT-*}{cyn}{SHIFT-*}{blu}{SHIFT-*}{cyn}{SHIFT-*}{blu}{SHIFT-*} {SHIFT-*}{SHIFT-*}{SHIFT-*}{SHIFT-*}{wht} {CBM-M}{brn}{rvon}{SHIFT-POUND} {CBM-*}{rvof}{wht}{CBM-H}{blu}{SHIFT-*}{pur}{CBM-*}{rvon}{CBM-Y}{CBM-U}{rvof}{CBM-I}{CBM-O}{brn}{CBM-K}{CBM-G}{blu}  {SHIFT-*}
+30267 print"{cyn}{SHIFT-*}{blu}{SHIFT-*}{SHIFT-*}{cyn}{SHIFT-*}{blu}{SHIFT-*}{cyn}{SHIFT-*}{blu}{SHIFT-*} {SHIFT-*} {SHIFT-*}{orng}{rvon}{SHIFT-POUND}   {CBM-*}{rvof}{blu} {SHIFT-*}{pur}{CBM-*}{rvon}      {CBM-T}{rvof}{wht}{CBM-G}
+30268 print"{blu}{SHIFT-*}{cyn}{SHIFT-*}{SHIFT-*}{blu}{SHIFT-*}{cyn}{SHIFT-*}{SHIFT-*}{blu} {SHIFT-*} {wht}{CBM-M}{orng}{rvon}{SHIFT-POUND}     {CBM-*}{rvof}{wht}{CBM-G}{blu}{SHIFT-*}{pur}{CBM-*}{rvon}      {rvof}{wht}{CBM-G}
+30269 print"{blu}{SHIFT-*}{cyn}{SHIFT-*}{blu}{SHIFT-*}{cyn}{SHIFT-*}{SHIFT-*} {SHIFT-*}{SHIFT-*}{blu}{SHIFT-*}{brn}{rvon}{SHIFT-POUND}       {CBM-*}{rvof}{blu}{SHIFT-*}{SHIFT-*}{cyn}{SHIFT-*}{blu}{SHIFT-*}{cyn}{SHIFT-*}{blu}{SHIFT-*}{cyn}{SHIFT-*}{SHIFT-*}{blu}{SHIFT-*}
+30270 print"{cyn}{SHIFT-*}{blu}{SHIFT-*}{cyn}{SHIFT-*} {SHIFT-*}{$a0}{wht}{CBM-N}{cyn}{SHIFT-*}{brn}{rvon}{SHIFT-POUND}         {CBM-*}{rvof}{cyn}{SHIFT-*}{wht}{CBM-H}{cyn} {SHIFT-*} {SHIFT-*}{blu} {SHIFT-*}
+30271 print"{cyn}{SHIFT-*}{SHIFT-*}{SHIFT-*}{SHIFT-*}{SHIFT-*}{SHIFT-*}{wht}{CBM-M}{brn}{rvon}{SHIFT-POUND}           {CBM-*}{rvof}{wht}{CBM-H}
+30272 print"{blu} sono vicino al lago":rem**{home}
+30273 return
+30274 print"
+30275 print"
+30276 print"          {brn}NM
+30277 print"{blu}{SHIFT-*}{SHIFT-*}{SHIFT-*}{SHIFT-*}{SHIFT-*}{SHIFT-*}{SHIFT-*}{SHIFT-*}{SHIFT-*}{brn}N{CBM-M}{CBM-G}M{blu}{SHIFT-*}{SHIFT-*}{SHIFT-*}{SHIFT-*}{SHIFT-*}{SHIFT-*}{SHIFT-*}{SHIFT-*}{SHIFT-*}{SHIFT-*}{SHIFT-*}{SHIFT-*}{SHIFT-*}
+30278 print"{SHIFT-*}{SHIFT-*} {SHIFT-*}{SHIFT-*}{SHIFT-*}{SHIFT-*}{SHIFT-*}{brn}N{$a0}NM M{blu}{SHIFT-*}{SHIFT-*} {SHIFT-*}{SHIFT-*}{SHIFT-*}{SHIFT-*}{SHIFT-*} {SHIFT-*}{SHIFT-*}
+30279 print"{SHIFT-*}{SHIFT-*}{SHIFT-*} {SHIFT-*}{SHIFT-*}{SHIFT-*}{brn}N{$a0}N{CBM-M}{CBM-G}M{$a0}M{blu}{SHIFT-*}{SHIFT-*}{SHIFT-*}{SHIFT-*} {SHIFT-*}{SHIFT-*}{SHIFT-*}{SHIFT-*}{SHIFT-*}
+30280 print"{SHIFT-*} {SHIFT-*} {SHIFT-*} {brn}N N NM M M{blu}{SHIFT-*}  {SHIFT-*}{SHIFT-*}{SHIFT-*}{SHIFT-*} {SHIFT-*}
+30281 print" {SHIFT-*} {SHIFT-*} {brn}N{$a0}N{$a0}N{orng}{CBM-+}{CBM-+}{brn}M{$a0}M{$a0}M{blu}{SHIFT-*}    {SHIFT-*}
+30282 print"{SHIFT-*}   {brn}{CBM-M}MN N{orng}{CBM-+}{CBM-+}{CBM-+}{CBM-+}{brn}M MN{CBM-G}{blu} {SHIFT-*}   {SHIFT-*}
+30283 print"    {brn}H{CBM-M}MN{orng}{CBM-+}{CBM-+}{CBM-+}{CBM-+}{CBM-+}{CBM-+}{brn}MN{CBM-G}G{blu}
+30284 print" {SHIFT-*}  {brn}GH{CBM-N}{orng}{CBM-+}{CBM-+}{CBM-+}{CBM-+}{CBM-+}{CBM-+}{CBM-+}{CBM-+}{brn}{CBM-G}GH{blu}   {SHIFT-*}
+30285 print"    {brn}{CBM-G}GH{orng}{CBM-+}{CBM-+}{CBM-+}{CBM-+}{CBM-+}{CBM-+}{CBM-+}{CBM-+}{brn}GH{CBM-M}{blu}
+30286 print"    {brn} {CBM-H}G{orng}{CBM-+}{CBM-+}{CBM-+}{CBM-+}{CBM-+}{CBM-+}{CBM-+}{CBM-+}{brn}H{CBM-M} {blu}
+30287 print"      {orng}{CBM-+}{CBM-+}{CBM-+}{CBM-+}{CBM-+}{CBM-+}{CBM-+}{CBM-+}{CBM-+}{CBM-+}
+30288 print"{blu} sono sul battello"
+30289 ifx=19thenprint"{home}{down}{down}{down}{orng}{CBM-O}{CBM-O}{CBM-O}{CBM-O}{CBM-O}{CBM-P}{CBM-@}{down}{left}{left}{left}{left}{left}{left}{left}{brn}PPPPPPP"
+30290 ifx=20thenprint"{home}{down}{rght}{rght}{rght}{grn}{rvon}{SHIFT-POUND}{rvof}{brn}N{rvon}{grn}{CBM-*}{rvof}{down}{left}{left}{brn}{CBM-G}{orng}{down}{left}{left}{left}{left}{rvon}{SHIFT-POUND}    {CBM-*}
+30291 ifx=23thenprint"{home}{down}{down}"tab(20)"{grn}{CBM-P}{CBM-O}{CBM-I}{CBM-I}{CBM-I}{CBM-I}{down}{left}{left}{left}{left}{left}{left}{brn}{rvon}P{CBM-T}{orng}P{brn}{CBM-T}{orng}P{brn}{CBM-T}{down}{left}{left}{left}{left}{left} {orng}{CBM-M}{brn} {orng}{CBM-M}{brn} ";
+30292 ifx=23thenprint"{down}{left}{left}{left}{brn} {orng}{CBM-M}{brn} {down}{left} ":rem**{home}
+30293 ifnm(19)=xthenprint"{home}{down}{down}{down}{down}{down}{down}{down}{down}{down}{rght}{rght}{rght}{rght}{rght}{rght}{rght}{rght}{rght}{brn}{rvon}   {CBM-M}{down}{left}{left}{left}{left}   {CBM-M}{down}{left}{left}{left}{left}{orng}{CBM-Y}{CBM-Y}{CBM-Y}P"
+30294 ifnm(5)=xthenprint"{home}{down}{down}{down}{down}{down}{down}{down}{down}{down}{down}{down}"tab(20)"{rvon}{orng}{SHIFT-POUND}M{$a0}N{CBM-*}{down}{left}{left}{left}{left}{left}{left}{SHIFT-POUND} N{CBM-Y}M {CBM-*}{down}{left}{left}{left}{left}{left}{left}{left}";
+30295 ifnm(5)=xthenprint"{CBM-Y}P   O{CBM-Y}{down}{left}{left}{left}{left}{left}{left}{left} {CBM-M}   {CBM-G} "
+30296 return
+30297 print"  {brn}      NNM
+30298 print"  {brn}      NMM
+30299 print"  {brn}      NNM
+30300 print"    {brn}    NMM        {red}{rvon}{SHIFT-POUND}{rvof}{wht}{CBM-G}
+30301 print"    {brn}    NNM       {red}{rvon}{SHIFT-POUND} {rvof}{wht}{CBM-G}
+30302 print"{blu}{SHIFT-*}{SHIFT-*}{SHIFT-*}{SHIFT-*}{SHIFT-*}{SHIFT-*}{SHIFT-*}{SHIFT-*}{brn}NMM{orng}{CBM-I}{CBM-O}{CBM-@}  {blu}{SHIFT-*}{SHIFT-*}{pur}{CBM-*}{rvon}  {rvof}{SHIFT-POUND}{blu}{SHIFT-*}{SHIFT-*}
+30303 print"{blu}{SHIFT-*}{SHIFT-*}{SHIFT-*}{SHIFT-*}{SHIFT-*} {orng}{CBM-I}{rvon} {rvof}{brn}NNM{orng}{rvon}     {rvof}{CBM-I}{CBM-P}{blu}{SHIFT-*}{SHIFT-*}{SHIFT-*}  {SHIFT-*}
+30304 print"{blu}{SHIFT-*}{orng}{CBM-@}{CBM-P}{CBM-O}{CBM-I}{rvon}   {rvof}{brn}NMM{orng}{rvon}        {rvof}{CBM-I}{CBM-O}{CBM-P}{blu}{SHIFT-*}{SHIFT-*}
+30305 print"{rvon}{orng}        {rvof}{brn}NNM{orng}{rvon}            "
+30306 print"{rvon}{orng}         {CBM-*}{SHIFT-POUND} {rvof}{SHIFT-POUND}{brn}{CBM-G}{CBM-M}{orng}{CBM-*}{rvon}        "
+30307 print"{rvon}{orng}                        "
+30308 print"{rvon}{orng}                        "
+30309 print"sono su un isola"
+30310 return
+30311 print"{lgrn}{rvon} {lgrn} {rvof}    {rvon}  {grn} {lgrn}         {grn} {lgrn} {rvof}
+30312 print"{rvon}{grn} {lgrn} {lgrn}  {rvof}   {rvon}  {grn} {lgrn} {grn} {lgrn}   {brn}{SHIFT-POUND}{rvof}{SHIFT-POUND}
+30313 print"{rvon}{brn}{CBM-M}{grn} {brn}{CBM-M}{lgrn} {rvof}       {rvon}{lgrn}  {brn} {SHIFT-POUND}{rvof}{SHIFT-POUND}
+30314 print"{rvon}{CBM-M}{CBM-M}{CBM-M} {grn}{rvof}        {brn}{rvon}  {rvof}{SHIFT-POUND}{rvon}{grn}{rvof}           "
+30315 print"{rvon}{brn}{CBM-M}{CBM-M} {grn}         {brn}  {grn}          ":rem**{home}
+30316 print"{rvon}{brn}{CBM-M} {grn}          {brn}  {grn}          "
+30317 print"{rvon}{brn} {grn}           {brn}  {grn}          "
+30318 print"{rvon}{grn}            {brn}  {grn}          "
+30319 print"{rvon}{grn}            {brn}  {grn}          "
+30320 print"{rvon}{grn}                        "
+30321 print"{blu} sono vicino ad un albero"
+30322 return
+30323 print"{lblu}   N   N M{CBM-@}{CBM-@}N M  M
+30324 print"{lblu}  N   N N{rvon}{orng}{SHIFT-POUND}{CBM-M}{CBM-G}{CBM-*}{brn}{rvof}{lblu}M M  M
+30325 print"{lblu}     N N{rvon}{orng}{SHIFT-POUND} {CBM-M}{CBM-G} {CBM-*}{brn}{rvof}{lblu}M M
+30326 print"{lblu}    N N{rvon}{brn}{SHIFT-POUND}{orng}{CBM-H} {CBM-M}{CBM-G} {CBM-M}{brn}{CBM-*}{rvof}{lblu}M M
+30327 print"{lblu}  {CBM-@}{CBM-@}{CBM-@}{CBM-@}{rvon}{brn}{SHIFT-POUND} {orng}{CBM-H} {CBM-M}{CBM-G} {CBM-M}{brn} {CBM-*}{rvof}{lblu}{CBM-@}{CBM-@}{CBM-@}{CBM-@}
+30328 print"{lblu}  {CBM-M} {CBM-M}{CBM-L}{rvon}{brn}  {orng}{CBM-H}{brn}{rvof}{CBM-G}   {rvon}{orng}{CBM-M}{brn}  {rvof}{lblu}{CBM-J}{CBM-G} {CBM-G}
+30329 print"{lblu}  {CBM-M} {CBM-M}{CBM-L}{rvon}{brn}  {orng}{CBM-H}{brn}{rvof}{CBM-G}   {rvon}{orng}{CBM-M}{brn}  {rvof}{lblu}{CBM-J}{CBM-G} {CBM-G}
+30330 print"{lblu}  {CBM-M} {CBM-M}{CBM-L}{rvon}{brn}  {orng}{CBM-H}{brn}{rvof}L{CBM-P}{CBM-P}{CBM-P}{rvon}{orng}{CBM-M}{brn}  {rvof}{lblu}{CBM-J}{CBM-G} {CBM-G}
+30331 print"{lblu}  {CBM-M} {CBM-M}{CBM-L}{rvon}{brn}  {orng}{CBM-H} {CBM-M}{CBM-G} {CBM-M}{brn}  {rvof}{lblu}{CBM-J}{CBM-G} {CBM-G}
+30332 print"{lblu}  {CBM-M} {CBM-M}{CBM-L}{rvon}{brn}{CBM-@}{CBM-@}{orng}L{CBM-P}{SHIFT-@}L{CBM-P}{SHIFT-@}{brn}{CBM-@}{CBM-@}{rvof}{lblu}{CBM-J}{CBM-G} {CBM-G}
+30333 print"{lblu}  {CBM-M} {CBM-M}{rvon}{brn}{SHIFT-POUND}          {CBM-*}{rvof}{lblu}{CBM-G} {CBM-G}
+30334 print"{lblu}  {CBM-M} {rvon}{orng}{SHIFT-POUND}{CBM-T}{CBM-T}{CBM-T}{CBM-T}{CBM-T}{CBM-T}{CBM-T}{CBM-T}{CBM-T}{CBM-T}{CBM-T}{CBM-T}{CBM-*}{rvof}{lblu} {CBM-G}
+30335 print"{lblu}  {CBM-M}{rvon}{orng}{SHIFT-POUND}              {CBM-*}{rvof}{lblu}{CBM-G}
+30336 print"  {rvon}{wht}{SHIFT-POUND}{CBM-T}{CBM-T}{CBM-T}{CBM-T}{CBM-T}{CBM-T}{CBM-T}{CBM-T}{CBM-T}{CBM-T}{CBM-T}{CBM-T}{CBM-T}{CBM-T}{CBM-T}{CBM-T}{CBM-*}{rvof}
+30337 print"{blu} sono in una casa sull'albero":rem**{home}
+30338 ifnm(20)=0thenreturn
+30339 print"{home}{down}{down}{down}{rght}{rght}{rght}{rght}{rght}{rght}{rght}{rght}{rght}{rght}{rght}{rght}{rght}{rvon}{cyn}{SHIFT-POUND} {CBM-*}{down}{left}{left}{left}{left}{SHIFT-POUND}  {rvof}{rght}Q{down}{left}{left}{left}{left}{left}{rvon}{pur}{rvon}QN{CBM-G}{down}{left}{left}{left}{left}{rvof}{CBM-Y}{rvon}{SHIFT-*} {rvof}{CBM-V}{down}{left}{left}{rvon}{CBM-T}{rvof}";
+30340 print"{down}{left}{left}{rvon}   {down}{left}{left}{left}  {CBM-G}{down}{left}{left}{left}{red}{CBM-Y}O{CBM-T}{down}{left}{left}{left} {CBM-G}{CBM-L}{down}{left}{left}{left}{left}{lblu}{rvof}{CBM-D}{rvon}{CBM-A} {rvof}{CBM-H}"
+30341 return
+30342 print"
+30343 print"
+30344 print"
+30345 print"{orng}  {SHIFT--}
+30346 print"M   N
+30347 print" {rvon}{SHIFT-POUND} {CBM-*}{rvof}
+30348 print"{blu}{SHIFT-*}{SHIFT-*}{SHIFT-*}{SHIFT-*}{SHIFT-*}{SHIFT-*}{SHIFT-*}{SHIFT-*}{SHIFT-*}{SHIFT-*}{SHIFT-*}{SHIFT-*}{SHIFT-*}{SHIFT-*}{SHIFT-*}{SHIFT-*}{SHIFT-*}{SHIFT-*}{SHIFT-*}{SHIFT-*}{SHIFT-*}{SHIFT-*}{SHIFT-*}{SHIFT-*}{SHIFT-*}{SHIFT-*}
+30349 print"{blu}{SHIFT-*}{SHIFT-*}{cyn}{SHIFT-*}{blu}{SHIFT-*}{SHIFT-*}{SHIFT-*}{SHIFT-*}{SHIFT-*}{$a0}{SHIFT-*}{$a0}{SHIFT-*}{SHIFT-*}{SHIFT-*}{SHIFT-*}{$a0}{SHIFT-*}{SHIFT-*}{SHIFT-*}{SHIFT-*}{SHIFT-*}{$a0}{SHIFT-*}{SHIFT-*}{SHIFT-*}{SHIFT-*}
+30350 print"{blu}{SHIFT-*}{cyn}{SHIFT-*}{blu}{SHIFT-*}{cyn}{SHIFT-*}{blu}{SHIFT-*}{$a0}{SHIFT-*}{SHIFT-*}{SHIFT-*}{$a0}{SHIFT-*}{SHIFT-*}{SHIFT-*}{SHIFT-*}{$a0}{SHIFT-*}{SHIFT-*}{SHIFT-*}{SHIFT-*}{SHIFT-*}{$a0}{SHIFT-*}{SHIFT-*}{SHIFT-*}{SHIFT-*}{SHIFT-*}{$a0}
+30351 print"{blu}{SHIFT-*}{cyn}{SHIFT-*}{SHIFT-*}{SHIFT-*}{blu}{SHIFT-*} {SHIFT-*} {SHIFT-*}{$a0}{SHIFT-*}{$a0}{SHIFT-*}{$a0}{SHIFT-*}{$a0}{SHIFT-*}{$a0}{SHIFT-*}{$a0}{SHIFT-*}{$a0}{SHIFT-*}{$a0}{SHIFT-*}{$a0}
+30352 print"{blu}{SHIFT-*}{cyn}{SHIFT-*}{SHIFT-*} {SHIFT-*}{blu}{SHIFT-*}{$a0}     {SHIFT-*}{$a0}     {$a0}{SHIFT-*}{$a0} {$a0}{SHIFT-*}{SHIFT-*}
+30353 print"{cyn}{SHIFT-*}{blu}{SHIFT-*}{cyn} {SHIFT-*}{SHIFT-*} {SHIFT-*} {blu} {SHIFT-*}{$a0}        {SHIFT-*}     {SHIFT-*}
+30354 print"{blu} sono in acqua"
+30355 ifnm(22)=xthenprint"{home}{down}{down}{down}{down}{down}{down}{rght}{rght}{rght}{rght}{rght}{rght}{rght}{rght}{rght}{rght}{rght}{rght}{rght}{rght}{rght}{rght}{rght}{rght}{rght}{rght}{brn}{CBM-@}{CBM-P}{CBM-O}{CBM-I}{CBM-I}{CBM-I}{down}{left}{left}{left}{left}{left}{left}{left}{orng}{CBM-U}{rvon}{CBM-I}{CBM-O}{CBM-P}{CBM-@}  {rvof}{down}{left}{CBM-Y}"
+30356 return
+30357 print"{brn}{rvon} {CBM-*}{rvof}{CBM-P}{CBM-P}{CBM-P}{CBM-P}{CBM-P}{wht}{CBM-@}{CBM-@}{CBM-@}{CBM-@}{CBM-@}{CBM-@}{CBM-@}{CBM-@}{CBM-@}{CBM-@}{brn}{CBM-P}{CBM-P}{CBM-P}{CBM-P}{CBM-P}{rvon}{SHIFT-POUND} {rvof}
+30358 print"{brn}{rvon} {CBM-M}{CBM-*}{rvof}    {CBM-*}{rvon}{CBM-*}{rvof}      {rvon}{SHIFT-POUND}{rvof}{SHIFT-POUND}    {rvon}{SHIFT-POUND}{CBM-G} {rvof}
+30359 print"{brn}{rvon} {CBM-M} {CBM-*}{rvof}{CBM-P}{CBM-P}{CBM-P}{CBM-P}{CBM-*}{rvon}{CBM-*}{rvof}{wht}{CBM-@}{CBM-@}{CBM-@}{CBM-@}{brn}{rvon}{SHIFT-POUND}{rvof}{SHIFT-POUND}{CBM-P}{CBM-P}{CBM-P}{CBM-P}{rvon}{SHIFT-POUND} {CBM-G}{$a0}{rvof}
+30360 print"{brn}{rvon} {CBM-M} {CBM-M}{CBM-*}{rvof}    {CBM-*}{orng}{rvon}O{CBM-Y}{CBM-Y}P{rvof}{brn}{SHIFT-POUND}    {rvon}{SHIFT-POUND}{CBM-G} {CBM-G}{$a0}{rvof}
+30361 print"{brn}{rvon} {CBM-M} {CBM-M} {CBM-*}{rvof}DDDDDDDDDDDD{rvon}{SHIFT-POUND} {CBM-G} {CBM-G}{$a0}{rvof}
+30362 print"{brn}{rvon} {CBM-M} {CBM-M} G{orng}O{CBM-Y}{CBM-Y}{CBM-Y}{CBM-Y}{CBM-Y}{CBM-Y}{CBM-Y}{CBM-Y}{CBM-Y}{CBM-Y}P{brn}H {CBM-G} {CBM-G}{$a0}{rvof}
+30363 print"{brn}{rvon} {CBM-M} {CBM-M} G{orng}O{CBM-Y}{CBM-Y}{CBM-Y}{CBM-Y}{CBM-Y}{CBM-Y}{CBM-Y}{CBM-Y}{CBM-Y}{CBM-Y}P{brn}H {CBM-G} {CBM-G}{$a0}{rvof}
+30364 print"{brn}{rvon} {CBM-M} {CBM-M} G{orng}O{CBM-Y}{CBM-Y}{CBM-Y}{CBM-Y}{CBM-Y}{CBM-Y}{CBM-Y}{CBM-Y}{CBM-Y}{CBM-Y}P{brn}H {CBM-G} {CBM-G}{$a0}{rvof}
+30365 print"{rvon}{brn} {CBM-M} {CBM-M} G{orng}O{CBM-Y}{CBM-Y}{CBM-Y}{CBM-Y}{CBM-Y}{CBM-Y}{CBM-Y}{CBM-Y}{CBM-Y}{CBM-Y}P{brn}H {CBM-G} {CBM-G}{$a0}{rvof}
+30366 print"{brn}{rvon} {CBM-M} {CBM-M} G{orng}O{CBM-Y}{CBM-Y}{CBM-Y}{CBM-Y}{CBM-Y}{CBM-Y}{CBM-Y}{CBM-Y}{CBM-Y}{CBM-Y}P{brn}H {CBM-G} {CBM-G}{$a0}{rvof}
+30367 print"{brn}{rvon} {CBM-M} {CBM-M} {rvof}{SHIFT-POUND}FFFFFFFFFFFF{CBM-*}{rvon} {CBM-G} {CBM-G}{$a0}{rvof}
+30368 print"{brn}{rvon} {CBM-M} {CBM-M}{rvof}{SHIFT-POUND}              {CBM-*}{rvon}{CBM-G} {CBM-G}{$a0}{rvof}
+30369 print"{brn}{rvon} {CBM-M} {rvof}{SHIFT-POUND}{CBM-T}{CBM-T}{CBM-T}{CBM-T}{CBM-T}{CBM-T}{CBM-T}{CBM-T}{CBM-T}{CBM-T}{CBM-T}{CBM-T}{CBM-T}{CBM-T}{CBM-T}{CBM-T}{CBM-*}{rvon} {CBM-G}{$a0}{rvof}
+30370 print"{brn}{rvon} {CBM-M}{rvof}{SHIFT-POUND}                  {CBM-*}{rvon}{CBM-G} {rvof}
+30371 print"{brn}{rvon} {rvof}{SHIFT-POUND}{CBM-T}{CBM-T}{CBM-T}{CBM-T}{CBM-T}{CBM-T}{CBM-T}{CBM-T}{CBM-T}{CBM-T}{CBM-T}{CBM-T}{CBM-T}{CBM-T}{CBM-T}{CBM-T}{CBM-T}{CBM-T}{CBM-T}{CBM-T}{CBM-*}{rvon} {rvof}":rem**{home}
+30372 print"   {blu}sono in una cabina"
+30373 return
+30374 print"{brn} {CBM-L}{CBM-J}
+30375 print"{brn} {CBM-L}{CBM-J}
+30376 print"{brn} {CBM-L}{CBM-J}
+30377 print"{blu}{SHIFT-*}{brn}{CBM-L}{CBM-J}{blu}{SHIFT-*}{SHIFT-*}{SHIFT-*}{SHIFT-*}{SHIFT-*}{SHIFT-*}{SHIFT-*}{SHIFT-*}{SHIFT-*}{SHIFT-*}{SHIFT-*}{SHIFT-*}{SHIFT-*}{SHIFT-*}{SHIFT-*}{SHIFT-*}{SHIFT-*}{SHIFT-*}{SHIFT-*}{SHIFT-*}{SHIFT-*}{SHIFT-*}{SHIFT-*}
+30378 print"{orng}{CBM-O}{CBM-O}{CBM-O}{CBM-O}{CBM-O}{CBM-O}{CBM-O}{rvon}{SHIFT-POUND}{rvof}{SHIFT-POUND}{blu}{SHIFT-*}{SHIFT-*}{SHIFT-*}{SHIFT-*}{SHIFT-*}{SHIFT-*}{SHIFT-*}{$a0}{SHIFT-*}{SHIFT-*}{SHIFT-*}{SHIFT-*}{SHIFT-*}{SHIFT-*}{SHIFT-*}{SHIFT-*}{SHIFT-*}
+30379 print"{rvon}{orng}{SHIFT-*}{SHIFT-*}{SHIFT-*}{SHIFT-*}{SHIFT-*}{SHIFT-*}N{rvof}{SHIFT-POUND}{blu}{$a0}{$a0}{SHIFT-*}{SHIFT-*}{SHIFT-*}{SHIFT-*}{$a0}{SHIFT-*}{SHIFT-*}{SHIFT-*}{SHIFT-*}{$a0}{SHIFT-*}{SHIFT-*}{SHIFT-*}{$a0}{SHIFT-*}{SHIFT-*}
+30380 print"{rvon}{orng}{SHIFT-*}{SHIFT-*}{SHIFT-*}{SHIFT-*}{SHIFT-*}N{rvof}{SHIFT-POUND}{blu}{SHIFT-*}{SHIFT-*}{SHIFT-*}{$a0}{pur}{rvon}{SHIFT-POUND}M    N{CBM-*}{rvof}{blu}{SHIFT-*}{$a0}{SHIFT-*}{SHIFT-*} {SHIFT-*}{SHIFT-*}
+30381 print"{rvon}{orng}{SHIFT-*}{SHIFT-*}{SHIFT-*}{SHIFT-*}N{rvof}{SHIFT-POUND}{blu}{SHIFT-*}{$a0}{SHIFT-*}{$a0}{pur}{rvon}{SHIFT-POUND}  M {$a0}N{$a0} {CBM-*}{rvof}{blu}{SHIFT-*}{$a0}{SHIFT-*}{$a0}{SHIFT-*}{SHIFT-*}
+30382 print"{blu}{SHIFT-*}    {SHIFT-*}{$a0}{$a0}{$a0}{$a0}{rvon}{pur}{CBM-Y}DFN{CBM-Y}{CBM-Y}MFD{CBM-Y}{rvof}{blu}{$a0}{$a0}{$a0}{$a0}{$a0}{SHIFT-*}
+30383 print"{blu} {SHIFT-*}{$a0}{$a0}{$a0}{$a0}{$a0}{$a0}{$a0}{SHIFT-*}{rvon}{pur}{$a0}{$a0}{$a0}{CBM-G}  {CBM-M}{$a0}{$a0}{$a0}{rvof}{blu}{$a0}{SHIFT-*}
+30384 print"          {pur}{rvon}   {CBM-H}  {CBM-M}   {rvof}
+30385 print"{blu} sono sulla lancia"
+30386 return
+30387 print"{rvon}{brn}     M   {rvof}{SHIFT-POUND}{orng}M{brn}{CBM-T}{CBM-T}{CBM-T}{CBM-*}{rvon}    N    {rvof}
+30388 print"{rvon}{brn}      M  {CBM-*}{rvof}{orng}NLN{CBM-T}{CBM-T}{brn}{rvon}{SHIFT-POUND}  N     {rvof}
+30389 print"{rvon}{brn}       M  {rvof}{orng}N{brn}{rvon}{SHIFT-POUND}     N      {rvof}
+30390 print"{rvon}{brn}        M       N       {rvof}
+30391 print"{rvon}{brn}        N{CBM-Y}{CBM-Y}{CBM-Y}{CBM-Y}{CBM-Y}{CBM-Y}{CBM-Y}M       {rvof}
+30392 print"{rvon}{brn}EDCFR{CBM-P}{CBM-P}N         M{CBM-P}{CBM-P}RFCD
+30393 print"{rvon}       {CBM-G}         {CBM-M}{$a0}     {rvof}
+30394 print"{rvon}       {CBM-G}         {CBM-M}{$a0}     {rvof}
+30395 print"{rvon} {rvof}{SHIFT-POUND} {CBM-*}{rvon}   {CBM-G}         {CBM-M}      {rvof}
+30396 print"{SHIFT-POUND}   {CBM-*}{rvon}  {CBM-G}        {CBM-P}{rvof}{SHIFT-POUND}{CBM-*}{rvon}     {rvof}
+30397 print"     {rvon}  L{CBM-P}{CBM-P}{CBM-P}{CBM-P}{CBM-P}{CBM-P}{CBM-P}{rvof}{SHIFT-POUND}   {CBM-*}{rvon}    {rvof}
+30398 print"     {rvon} N        {rvof}    {rvon}{SHIFT-POUND}    {rvof}
+30399 print"     {rvon}N          {CBM-*}{SHIFT-POUND} M    {rvof}
+30400 print"     {CBM-*}{rvon}              M   {rvof}
+30401 print"{blu} sono in una caverna"
+30402 return
+30403 print"{rvon}{brn} {CBM-*}{rvof}
+30404 print"{rvon}{brn}  {CBM-*}{rvof}
+30405 print"{rvon}{brn}    {CBM-*}{rvof}
+30406 print"{rvon}{brn}      {CBM-*}{rvof}
+30407 print"{rvon}{brn}       {CBM-*}{rvof}   {grn}   {CBM-P}{CBM-O}{CBM-P}
+30408 print"{rvon}{brn}         {CBM-*}{rvof}    {rvon}{lgrn}{CBM-R}{CBM-W}{CBM-R}{rvof}
+30409 print"{rvon}{brn}      {grn}        {SHIFT--}{SHIFT--}{SHIFT--}      {rvof}
+30410 print"{rvon}{brn}   {grn}             N      {rvof}
+30411 print"{rvon}{brn} {grn}  M {CBM-G}         M{CBM-G}      {rvof}"
+30412 print"{rvon}{grn}  {CBM-M}{CBM-M}N          {CBM-M}{CBM-G}      {rvof}
+30413 print"{rvon}{grn}   M{CBM-G}                  {rvof}
+30414 print"{rvon}{grn}   {CBM-M}{CBM-G}                  {rvof}
+30415 print"{blu} sono in territorio azteco":rem**{home}
+30416 return
+30417 print"{rvon}{brn}  {lgrn}   {brn} {grn}   {lgrn} {grn}   {lgrn} {grn}  {lgrn}  {grn}    {lgrn}   "
+30418 print"{rvon}{lgrn}  {grn}  {lgrn}  {grn}  {lgrn} {grn} {brn}{CBM-M}{grn} {lgrn}  {grn} {lgrn} {grn}  {lgrn}   {brn} {grn}  {lgrn} "
+30419 print"{rvon}{grn} {lgrn} {grn} {lgrn} {grn} {brn} {lgrn}  {grn} {brn} {CBM-M}{lgrn} {grn} {brn} {lgrn}   {grn} {brn} {grn}  {brn} {grn} {lgrn} {grn} "
+30420 print"{rvon}{grn}  {brn}{CBM-M}{CBM-M}{CBM-M}  {CBM-M}{lgrn}  {brn}{CBM-M} {CBM-M} {CBM-M}{lgrn}  {brn}{CBM-M} {lgrn}   {brn} {CBM-M} "
+30421 print"{rvon}{brn}  {CBM-M}{CBM-M}{CBM-M}  {CBM-M} N{lgrn} {brn} {CBM-M}  N {CBM-M} {CBM-G}{CBM-G}{CBM-G} {CBM-M} "
+30422 print"{rvon}{brn}  {CBM-M}{CBM-M}{CBM-M}  {CBM-M}NN{CBM-M}{lgrn} {brn}{CBM-M} {CBM-M}{CBM-M} {CBM-M} MM{CBM-G} {CBM-M} "
+30423 print"{rvon}{brn}  {CBM-M}{grn}  {brn}   N {CBM-M} {CBM-M} {CBM-M}{grn} {brn} {CBM-M}  M  {CBM-M} "
+30424 print"{rvon}{brn}  {CBM-M}{grn}  {brn}  {CBM-M}  {CBM-M} {CBM-M} {CBM-M}{grn} {brn} {CBM-M}  {CBM-M}  {CBM-M} "
+30425 print"{rvon}{brn}  {CBM-M}{grn}  {brn}  {CBM-M}  {CBM-M}{grn}  {brn} {CBM-M}{grn} {brn} {CBM-M}  {CBM-M}  {CBM-M} "
+30426 print"{rvon}{brn}  {CBM-M}{grn}  {brn}  {CBM-M}  {CBM-M}{grn}     {brn} {CBM-M}  {CBM-M}  {CBM-M} "
+30427 print"{rvon}{brn}  {CBM-M}{grn}  {brn}  {CBM-M}  {CBM-M}{grn}       {brn}  {CBM-M}  {CBM-M} "
+30428 print"{rvon}{grn}     {brn}  {CBM-M}{grn}             {brn}  {CBM-M}{grn} "
+30429 print"{rvon}{grn}     {brn}  {CBM-M}{grn}                 "
+30430 print"{rvon}{grn}                         "
+30431 ifx=32thenprint"{blu} mi sono perso nella foresta":return
+30432 print"{blu} sono in una foresta":return
+30433 print"{orng}           {rvon}{SHIFT-POUND}{brn} {CBM-*}
+30434 print"{orng}           {CBM-*}{brn}{rvon}{CBM-T}{rvof}{SHIFT-POUND}
+30435 print"{orng}           {orng}{CBM-I}{brn}{rvon} {rvof}{CBM-I}
+30436 print"{orng}          {rvon}{SHIFT-POUND}{brn}   {CBM-*}{rvof}  {orng}{rvon} {rvof}
+30437 print"{orng}         {rvon}{SHIFT-POUND}{brn}{rvof}{SHIFT-POUND}{rvon}{orng}{CBM-J}{brn} {CBM-L}{rvof}{CBM-*}{rvon}{CBM-*}{SHIFT-POUND}{rvof}{SHIFT-POUND}
+30438 print"{orng}        {rvon}{SHIFT-POUND}{rvof}{brn}{SHIFT-POUND} {orng}{CBM-L}{brn}{rvon} {rvof}{CBM-J} {CBM-*}{SHIFT-POUND}
+30439 print"{orng}       {rvon} {rvof}{brn}{SHIFT-POUND} {orng}{rvon}{SHIFT-POUND} {brn}  {CBM-*}
+30440 print"{grn}   M{CBM-M}     {orng}{rvon} {rvof}{SHIFT-POUND}{$a0}{brn}{CBM-*}{rvon} {rvof}{grn}     N
+30441 print"{grn}  {CBM-M}{CBM-M}N     {orng}{rvon} {rvof}  {$a0}{brn}{rvon} {rvof}  {grn}  M{CBM-G}
+30442 print"{lgrn}{rvon}   M{CBM-G}     {orng} {lgrn}   {brn} {lgrn}    {CBM-M}{CBM-G}      "
+30443 print"{lgrn}{rvon}   {CBM-M}{CBM-G}     {orng} {grn}   {brn}{CBM-@}{grn}     {lgrn}       "
+30444 print"{lgrn}{rvon}          {CBM-Y}   {CBM-Y}{CBM-Y}{CBM-Y}          "
+30445 print"{lgrn}{rvon}                           "
+30446 print"{blu} sono vicino ad un monumento"
+30447 return
+30448 print"{lblu}         {CBM-@}{CBM-P}{CBM-O}{CBM-I}{CBM-I}{CBM-I}{CBM-O}{CBM-P}{CBM-@}
+30449 print"  {CBM-@}{CBM-P}{CBM-O}{CBM-I}{rvon}{CBM-U}{CBM-Y}{CBM-T}         {CBM-T}{CBM-Y}{CBM-U}{rvof}{CBM-I}{CBM-O}{CBM-P}{CBM-@}
+30450 print"{orng}  M{lblu}{CBM-Y}{CBM-U}{rvon}{CBM-I}{CBM-O}{CBM-P}{CBM-@}         {CBM-@}{CBM-P}{CBM-O}{CBM-I}{rvof}{CBM-U}{CBM-Y}{CBM-T}{orng}{CBM-G}
+30451 print"   M    {lblu}  {CBM-T}{CBM-Y}{CBM-U}{rvon}{CBM-I}{rvof}{CBM-U}{CBM-Y}{CBM-T}  {orng}      {CBM-G}
+30452 print"    M                    {CBM-G}
+30453 print"     {CBM-G}           {CBM-+}{CBM-+}{CBM-+}{CBM-+}{CBM-+}{CBM-+}  M
+30454 print"     {CBM-G}   NM       RFCDE   M
+30455 print"     {CBM-G}  {CBM-M}{CBM-M}MM       M  M    M
+30456 print"     {CBM-G}  {CBM-M}{CBM-M}{CBM-Q}{CBM-W}        M N     M
+30457 print"     {CBM-G}   M           {CBM-Y}      N
+30458 print"     M    MN             L{CBM-P}N
+30459 print"      M            EDCFRN
+30460 print"       M               N
+30461 print"        M            {CBM-P}N
+30462 print"         {CBM-Y}EDCFRRFCDE{CBM-Y}
+30463 print"{blu} sono sopra il monumento"
+30464 return
+30465 print"
+30466 print"{rvon}{brn}M  M  M  M  M  M  M  M  M"
+30467 print"{rvon}{orng}P{CBM-Y}{CBM-Y}P{CBM-Y}{CBM-Y}P{CBM-Y}{CBM-Y}P{CBM-Y}{CBM-Y}P{CBM-Y}{CBM-Y}P{CBM-Y}{CBM-Y}P{CBM-Y}{CBM-Y}P{CBM-Y}{CBM-Y}P"
+30468 print"{rvon}{orng}{CBM-Y}{CBM-Y}P{CBM-Y}{CBM-Y}P{CBM-Y}{CBM-Y}P{CBM-Y}{CBM-Y}P{CBM-Y}{CBM-Y}P{CBM-Y}{CBM-Y}P{CBM-Y}{CBM-Y}P{CBM-Y}{CBM-Y}P{CBM-Y}"
+30469 print"{rvon}{orng}P{CBM-Y}{CBM-Y}P{CBM-Y}{CBM-Y}P{CBM-Y}{CBM-Y}P{CBM-Y}{CBM-Y}P{CBM-Y}{CBM-Y}P{CBM-Y}{CBM-Y}P{CBM-Y}{CBM-Y}P{CBM-Y}{CBM-Y}P"
+30470 print"{rvon}{orng}{CBM-Y}{CBM-Y}P{CBM-Y}{CBM-Y}P{CBM-Y}{CBM-Y}P{CBM-Y}{CBM-Y}P{CBM-Y}{CBM-Y}P{CBM-Y}{CBM-Y}P{CBM-Y}{CBM-Y}P{CBM-Y}{CBM-Y}P{CBM-Y}"
+30471 print"{rvon}{orng}P{CBM-Y}{CBM-Y}P{CBM-Y}{CBM-Y}P{CBM-Y}{CBM-Y}P{CBM-Y}{CBM-Y}P{CBM-Y}{CBM-Y}P{CBM-Y}{CBM-Y}P{CBM-Y}{CBM-Y}P{CBM-Y}{CBM-Y}P":rem**{home}
+30472 print"{rvon}{orng}{CBM-Y}{CBM-Y}P{CBM-Y}{CBM-Y}P{CBM-Y}{CBM-Y}P{CBM-Y}{CBM-Y}P{CBM-Y}{CBM-Y}P{CBM-Y}{CBM-Y}P{CBM-Y}{CBM-Y}P{CBM-Y}{CBM-Y}P{CBM-Y}"
+30473 print"{rvon}{orng}P{CBM-Y}{CBM-Y}P{CBM-Y}{CBM-Y}P{CBM-Y}{CBM-Y}P{CBM-Y}{CBM-Y}P{CBM-Y}{CBM-Y}P{CBM-Y}{CBM-Y}P{CBM-Y}{CBM-Y}P{CBM-Y}{CBM-Y}P"
+30474 print"{rvon}{orng}{CBM-Y}{CBM-Y}P{CBM-Y}{CBM-Y}P{CBM-Y}{CBM-Y}P{CBM-Y}{CBM-Y}P{CBM-Y}{CBM-Y}P{CBM-Y}{CBM-Y}P{CBM-Y}{CBM-Y}P{CBM-Y}{CBM-Y}P{CBM-Y}"
+30475 print"{rvon}{grn}{CBM-T}{CBM-T}{CBM-T}{CBM-T}{CBM-T}{CBM-T}{CBM-T}{CBM-T}{CBM-T}{CBM-T}{CBM-T}{CBM-T}{CBM-T}{CBM-T}{CBM-T}{CBM-T}{CBM-T}{CBM-T}{CBM-T}{CBM-T}{CBM-T}{CBM-T}{CBM-T}{CBM-T}{CBM-T}"
+30476 print"{rvon}{grn}                         "
+30477 print"{rvon}{grn}                         "
+30478 print"{blu} sono vicino ad un muro"
+30479 ifnm(31)=xthenprint"{home}{down}{down}{down}{down}{down}{rght}{rght}{rght}{rght}{rght}{rght}{orng}{SHIFT-POUND}{CBM-*}{down}{left}{left}{rvon}{CBM-*}{SHIFT-POUND}"
+30480 ifnm(32)<>xthenreturn
+30481 print"{home}{down}{down}{down}{down}{rght}{rght}{rght}{rght}{rght}{rght}{rght}{rght}{rght}{rght}{rght}{rght}   {rvon}{brn} {rvof}{down}{left}{left}{left}{left}   {rvon} {rvof}{down}{left}{left}{left}{left}   {rvon} {rvof}{down}{left}{left}{left}{left}   {rvon} {rvof}{down}{left}{left}{left}{left}";
+30482 print"   {rvon} {rvof}{down}{left}{left}{left}{left}   {rvon} {rvof}{down}{left}{left}{left}{left}{rvon}{grn}   M{down}{left}{left}{left}{left}    "
+30483 return
+30484 print
+30485 print
+30486 print"{rvon}{wht}    M                N   "
+30487 print"{rvon}{wht}    {CBM-M}               N{CBM-G}s  "
+30488 print"{rvon}{wht}    {CBM-M}              N {CBM-G}o  "
+30489 print"{rvon}{wht}    {CBM-M}{yel}{CBM-Y}P{wht}M           {CBM-G} {CBM-G}n  "
+30490 print"{rvon}{wht}    {CBM-M}{yel} {CBM-M}{wht}{CBM-M}{CBM-P}{CBM-P}{CBM-P}{CBM-P}{CBM-P}{CBM-P}{CBM-P}{CBM-P}{CBM-P}N{yel}O{wht}{CBM-G} {CBM-G}o  "
+30491 print"{rvon}{wht}    {CBM-M}{yel} {CBM-M}{wht}{CBM-M}{yel}{CBM-M} azteco {wht}{CBM-G}{yel}{CBM-G}{wht}{CBM-G} {CBM-G}   ":rem**{home}
+30492 print"{rvon}{wht}    {CBM-M}{yel} {CBM-M}{wht}{CBM-M}{CBM-Y}{CBM-Y}{CBM-Y}{CBM-Y}{CBM-Y}{CBM-Y}{CBM-Y}{CBM-Y}{CBM-Y}M{yel}L{wht}{CBM-G} {CBM-G}p  "
+30493 print"{rvon}{wht}N{CBM-Y}M  {yel}{CBM-P}{SHIFT-@}{wht}N           {CBM-G} {CBM-G}e  "
+30494 print"{rvon}{wht}Q^Q{CBM-G}{CBM-M}              M {CBM-G}r  "
+30495 print"{rvon}{wht}M{SHIFT-+}N {CBM-M}               M{CBM-G}s  "
+30496 print"{rvon}{wht} -  N                Mo  "
+30497 print"{blu} sono dentro la tomba
+30498 return
+30499 print"           {rvon}{brn}M   {CBM-*}{rvof}
+30500 print"           {rvon}{brn} {orng} {CBM-P}{CBM-P} {rvof}
+30501 print"           {rvon}{brn} {orng} {CBM-G}N {rvof}
+30502 print"           {rvon}{brn} {orng} OM {rvof}
+30503 print"       {rvon}{brn}M   M{orng}    {brn}   {CBM-*}{rvof}
+30504 print"       {rvon}{brn} {orng}     {CBM-R}      ":rem**{home}
+30505 print"       {rvon}{brn} {orng}     {SHIFT--}      "
+30506 print"       {brn}{CBM-*}{orng}{rvon}     {CBM-E}      "
+30507 print"           {rvon}{brn} {orng} {CBM-P}{CBM-P} "
+30508 print"       {grn}{rvon}    {brn} {orng} {CBM-G}N {grn} "
+30509 print"   {rvon}{grn}        {brn} {orng} O  {grn}   "
+30510 print"  {rvon}{grn}         {rvof}{brn}{CBM-*}{rvon}{orng}    {grn}     "
+30511 print"  {rvon}{grn}                    ":rem**{home}
+30512 print"{blu} sono in un pasticcio"
+30513 return
+30514 data40,68,73,32,67,82,79,87,84,69,82,32,39
+30515 data65,90,84,69,67,32,84,79,77,66,32,80,84,46,49,39,41
+30516 data84,82,65,68,79,84,84,79,32,68,65
+30517 data83,65,78,84,69,32,66,73,79,78,68,73,32,38,32
+30518 data85,84,69,32,83,67,72,82,69,89,69,82
+30519 data86,73,65,32,83,46,77,65,82,73,65,32,49,48,51
+30520 data44,32,67,79,82,82,73,68,79,78,73,65,32,40,77,67,41
