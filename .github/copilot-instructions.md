@@ -26,6 +26,7 @@
  - Evitare di alterare il comportamento del gioco per correggere presunti errori dell'originale senza esplicita motivazione.
  - Mantenere le modifiche piccole e focalizzate; non fare refactoring estranei alla richiesta.
  - Usare nomi descrittivi e commenti solo per chiarire logica non evidente.
+ - Quando si crea una funzione che converte un comando, una routine o un'istruzione del C64, riportare sempre il comando originale in un commento immediatamente sopra la funzione. Il commento deve facilitare il confronto con il sorgente PETCAT; per esempio, sopra `clearScreen` indicare il comando C64 equivalente, come `// C64: PRINT "{clr}"`.
  - Preservare i testi italiani e la distinzione tra maiuscole e minuscole rilevante per PETSCII.
 
  ## Schermo e rendering PETSCII
