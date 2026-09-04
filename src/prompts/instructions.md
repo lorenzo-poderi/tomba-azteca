@@ -188,6 +188,24 @@ Rappresentare almeno le fasi `title`, `instructions`, `playing`, `dead` e `won`.
 
 Lo step 2 e considerato completo quando ogni comando e categoria tecnica rilevata nello step 1 ha una strategia assegnata, i punti incerti hanno una decisione documentata, la struttura dei moduli e il modello dello stato sono definiti e il piano di test e sufficiente per verificare parser, transizioni, bitmap e persistenza. Solo a quel punto si puo procedere allo step 3.
 
+## Piano per la mappatura PETSCII
+
+Per lo step 5 adottare un approccio ibrido:
+
+- validare subito entrambe le tabelle complete, ciascuna composta da 256 bitmap di 64 valori binari;
+- caricare le tabelle senza copiare o riscrivere le bitmap in JavaScript;
+- implementare e verificare il rendering per incrementi, iniziando da un carattere testuale e proseguendo con spaziatura PETSCII, controlli, colori, reverse video, modalita maiuscola/minuscola, caratteri `CBM` e caratteri `SHIFT`;
+- mantenere una mappa centralizzata tra token PETCAT, codici numerici e comportamento, includendo i caratteri generati dinamicamente con `CHR$`;
+- distinguere i token realmente stampati da quelli presenti solo nei commenti `REM`.
+
+Non usare una mappatura parziale hardcoded come soluzione finale: le routine grafiche delle stanze usano un repertorio ampio di caratteri `CBM` e `SHIFT`, quindi una soluzione limitata alla schermata iniziale nasconderebbe errori nelle scene successive. Lo step 5 potra essere marcato completo solo dopo aver validato entrambe le tabelle, risolto tutti i token usati dal sorgente e verificato almeno un caso per ogni categoria di carattere e controllo.
+
+## Valutazione delle dipendenze
+
+Lo step 4 e completato: non sono necessarie dipendenze esterne. HTML, CSS e JavaScript standard, insieme alle API native del browser (`CanvasRenderingContext2D`, eventi tastiera e `localStorage`), sono sufficienti per il canvas PETSCII, il parser, lo stato, il rendering e il salvataggio.
+
+Non introdurre framework, bundler o librerie come Underscore/Bootstrap senza una necessita concreta. Qualunque dipendenza futura deve essere motivata in questo documento, installata in modo riproducibile e verificata rispetto alla compatibilita con il porting fedele del C64.
+
 # Dettagli relativi al videogioco
 Il videogioco è un'avventura testuale con grafica costruita tramite caratteri PETSCII.
 L'avventura consiste nell'inserimento di istruzioni come comandi da impartire nel seguente formato:
@@ -271,9 +289,9 @@ Verranno smarcate man mano che verranno implementate le varie fasi:
 [x] Analisi e comprensione del file sorgente posizionato nel percorso seguente: 
     - \data\sources\source.petcat.txt
 [x] Individuazione di una strategia per ogni tipologia di comando individuato. Verrà aggiornato il seguente file per riportare qui sotto la strategia da impiegare per "tradurre" ogni comando.
-[ ] Creazione della pagina html che conterrà la <canvas> in cui renderizzare lo schermo del commodore 64.
+[x] Creazione della pagina html che conterrà la <canvas> in cui renderizzare lo schermo del commodore 64. Completata in `index.html` con canvas logico 320x200 e area di inserimento comandi.
 [ ] Abbellimento minimale della pagina html principale con un file css (sono consentite librerie esterne come bootstrap)
-[ ] Valutare se includere qualche libreria javascript utile allo svolgimento di alcune funzioni (es. underscore)
+[x] Valutare se includere qualche libreria javascript utile allo svolgimento di alcune funzioni (es. underscore): non necessaria; usare API native e JavaScript standard.
 [ ] Inizio implementazione file javascript con la conversione del videogioco. Creazione del file js.
 [ ] Individuazione di ogni carattere PESCII individuato all'interno dei file
     - \data\petscii\c64_lowercase_symbols.json
