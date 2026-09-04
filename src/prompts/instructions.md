@@ -290,17 +290,21 @@ Verranno smarcate man mano che verranno implementate le varie fasi:
     - \data\sources\source.petcat.txt
 [x] Individuazione di una strategia per ogni tipologia di comando individuato. Verrà aggiornato il seguente file per riportare qui sotto la strategia da impiegare per "tradurre" ogni comando.
 [x] Creazione della pagina html che conterrà la <canvas> in cui renderizzare lo schermo del commodore 64. Completata in `index.html` con canvas logico 320x200 e area di inserimento comandi.
-[ ] Abbellimento minimale della pagina html principale con un file css (sono consentite librerie esterne come bootstrap)
+[x] Abbellimento minimale della pagina html principale con un file css: creato `css/game.css` con layout responsive e canvas pixelated, senza alterare la risoluzione logica.
 [x] Valutare se includere qualche libreria javascript utile allo svolgimento di alcune funzioni (es. underscore): non necessaria; usare API native e JavaScript standard.
-[ ] Inizio implementazione file javascript con la conversione del videogioco. Creazione del file js.
-[ ] Individuazione di ogni carattere PESCII individuato all'interno dei file
+[x] Inizio implementazione file javascript con la conversione del videogioco. Creati i moduli PETSCII `js/petscii-map.js` e `js/petscii-renderer.js`; la logica completa del gioco verra aggiunta negli step successivi.
+[x] Individuazione di ogni carattere PESCII individuato all'interno dei file. Completata la validazione delle due tabelle e creata la mappa centralizzata in `js/petscii-map.js`; il rendering dei caratteri resta nello step 6.
     - \data\petscii\c64_lowercase_symbols.json
     - \data\petscii\c64_uppercase_symbols.json
     Ogni carattere avrà un nome o numero associato secondo le convenzioni presenti nel manuale ufficiale del Commodore 64.
-[ ] Creazione delle funzioni riguardanti la stampa a video di ogni carattere.
-    [ ] Posizionamento del cursore
-    [ ] Colore del cursore
-    [ ] Stampa di un carattere
-[ ] Creazione di altre funzioni che imitano comandi del Commodore 64 (POKE, ecc...) (dettagliare meglio)
-[ ] Creazione della funzione main principale che avvia il gioco
+[x] Creazione delle funzioni riguardanti la stampa a video di ogni carattere.
+    [x] Posizionamento del cursore
+    [x] Colore del cursore
+    [x] Stampa di un carattere
+[x] Creazione di altre funzioni che imitano comandi del Commodore 64 (POKE, ecc...). Implementate primitive per `PRINT`, `POKE 53280` e `POKE 53281`; `PEEK` resta astratto per il browser.
+[x] Modellazione iniziale dello stato e dell'interprete dei comandi: creati `js/game-state.js` e `js/command-parser.js`, con stato iniziale, oggetti, inventario, vocabolari compatti, abbreviazioni direzionali e gestione degli input invalidi. Dispatcher e regole delle stanze restano da implementare.
+[x] Dispatcher iniziale dei comandi e dati della mappa: creati `js/command-dispatcher.js` e `js/game-data.js`, con movimento delegato alle regole, inventario, aiuto, attesa e messaggi di errore. Restano da implementare le regole speciali delle stanze e il ciclo principale.
+[x] Regole base delle transizioni: creato `js/game-rules.js` con movimento da mappa, raccolta/rilascio oggetti, consumo della fiaccola, buio, morte e vittoria. Restano da convertire le eccezioni narrative specifiche del sorgente.
+[x] Salvataggio e caricamento: creato `js/persistence.js` con `localStorage`, versione del formato e validazione dei dati.
+[x] Creazione della funzione main principale che avvia il gioco: creato `js/main.js` e collegato a `index.html`; restano da completare le routine narrative e grafiche dell'originale.
 [ ] Buon divertimento!

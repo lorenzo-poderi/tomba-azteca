@@ -3,6 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="css/game.css">
   <title>Project title</title>
 </head>
 <body>
@@ -15,6 +16,12 @@
       <input id="command-input" name="command" type="text" maxlength="16" autocomplete="off" spellcheck="false">
       <button type="submit">Invia</button>
     </form>
+    <nav aria-label="Gestione partita">
+      <button id="new-game" type="button">Nuova partita</button>
+      <button id="save-game" type="button">Salva</button>
+      <button id="load-game" type="button">Carica</button>
+    </nav>
   </main>
+  <script type="module" src="js/main.js"></script>
 </body>
 </html>
