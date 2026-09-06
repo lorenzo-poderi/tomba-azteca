@@ -140,6 +140,36 @@ export class PetsciiRenderer {
     this.advanceCursor();
   }
 
+  // C64: PRINT all charset
+  printAll() {
+
+    for (let i = 0; i < this.tables[this.charset].length; i++) {
+
+      const bitmap = this.tables[this.charset][i];
+      if (!bitmap) {
+        throw new Error(`Bitmap PETSCII mancante per il codice ${code}`);
+      }
+
+      const foreground = this.reverse ? C64_COLORS[this.background] : C64_COLORS[this.color];
+      const background = this.reverse ? C64_COLORS[this.color] : C64_COLORS[this.background];
+      const originX = this.cursor.x * 8;
+      const originY = this.cursor.y * 8;
+
+      this.context.fillStyle = background;
+      this.context.fillRect(originX, originY, 8, 8);
+      this.context.fillStyle = foreground;
+
+      bitmap.forEach((pixel, index) => {
+        if (pixel === 1) {
+          this.context.fillRect(originX + (index % 8), originY + Math.floor(index / 8), 1, 1);
+        }
+      });
+
+      this.advanceCursor();
+    }
+
+  }
+
   // C64: PRINT string
   printText(text) {
     const tokens = text.match(/\{[^}]+\}|./gs) ?? [];

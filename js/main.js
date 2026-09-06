@@ -101,8 +101,13 @@ function showMessage(message) {
  * Ridisegna una schermata minima con stanza, oggetti ed uscite disponibili.
  */
 function renderGame() {
+  debugger;
   renderer.clearScreen();
+  
+  //renderer.printAll();
+  
   renderer.printAt(0, 0, `stanza ${gameState.room}`);
+
   const objects = gameState.objects
     .filter((object) => object.location === gameState.room)
     .map((object) => object.name)
